@@ -44,12 +44,17 @@ func _physics_process(delta):
 		
 		if Input.is_action_pressed("left") && !Input.is_action_pressed("right"):
 			velocity.x = -max_hspeed
+			$AnimationPlayer.play("Run")
+			get_node( "Sprite" ).set_flip_h( false )
 			
 		if Input.is_action_pressed("right") && !Input.is_action_pressed("left"):
 			velocity.x = max_hspeed
+			$AnimationPlayer.play("Run")
+			get_node( "Sprite" ).set_flip_h( true )
 	
 			
-		if is_on_floor() && velocity.y > 0:
+		if is_on_floor() && velocity.y > 0 && abs(velocity.x) == 0:
+			$AnimationPlayer.play("Idle")
 			gravity = 0
 			velocity.y = 0
 		else:
