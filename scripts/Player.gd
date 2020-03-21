@@ -51,7 +51,13 @@ func _physics_process(delta):
 			velocity.x = max_hspeed
 			$AnimationPlayer.play("Run")
 			get_node( "Sprite" ).set_flip_h( true )
-	
+			
+		if Input.is_action_pressed("teleport"):
+			Globals.player_position_day = self.position
+			
+		if Input.is_action_pressed("ateleport"):
+			self.position.x = Globals.player_position_day.x
+			self.position.y = Globals.player_position_day.y
 			
 		if is_on_floor() && velocity.y > 0 && abs(velocity.x) == 0:
 			$AnimationPlayer.play("Idle")
