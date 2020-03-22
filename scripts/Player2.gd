@@ -4,10 +4,10 @@ extends KinematicBody2D
 var hfriction = 60
 
 # Restricciones de velocidad
-var max_hspeed = 240
+var max_hspeed = 350
 var max_uspeed = 600
 var max_dspeed = 480
-var max_gravity = 1800
+var max_gravity = 1000
 
 # Para poder tacklear
 var tackle = false
@@ -38,23 +38,38 @@ func _physics_process(delta):
 		if sign(velocity.x) != hsign:
 			velocity.x = 0
 			
-		if Input.is_action_pressed("jump") && gravity == 0:
+		if Input.is_action_pressed("jump2") && gravity == 0:
 			velocity.y = -max_uspeed
 			gravity = max_gravity
+			$AnimationPlayer.play("Jump")
+			
 		
-		if Input.is_action_pressed("left") && !Input.is_action_pressed("right"):
+		if Input.is_action_pressed("left2") && !Input.is_action_pressed("right2"):
 			velocity.x = -max_hspeed
 			$AnimationPlayer.play("Run")
 			get_node( "Sprite" ).set_flip_h( false )
 			
-		if Input.is_action_pressed("right") && !Input.is_action_pressed("left"):
+		
+				
+				
+		if Input.is_action_pressed("right2") && !Input.is_action_pressed("left2"):
 			velocity.x = max_hspeed
 			$AnimationPlayer.play("Run")
 			get_node( "Sprite" ).set_flip_h( true )
+			
+		
 	
 			
-		if is_on_floor() && velocity.y > 0 && abs(velocity.x) == 0:
-			$AnimationPlayer.play("Idle")
+		if is_on_floor() && velocity.y > 0 && abs(velocity.x) == 0 :
+			if !Input.is_action_pressed("attack"):
+				$AnimationPlayer.play("Idle")
+			else: 
+				$AnimationPlayer.play("Bark")
+			
+			
+			
+			
+			
 			gravity = 0
 			velocity.y = 0
 		else:
