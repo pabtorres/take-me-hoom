@@ -43,16 +43,16 @@ func _physics_process(delta):
 			gravity = max_gravity
 			$AnimationPlayer.play("Jump")
 			
-		
-		if Input.is_action_pressed("left2") && !Input.is_action_pressed("right2"):
+		# Se añade una consulta para saber si se está activada la animación de ladrido
+		if Input.is_action_pressed("left2") && !Input.is_action_pressed("right2") && $AnimationPlayer.current_animation != "Bark":
 			velocity.x = -max_hspeed
 			$AnimationPlayer.play("Run")
 			get_node( "Sprite" ).set_flip_h( false )
 			
 		
 				
-				
-		if Input.is_action_pressed("right2") && !Input.is_action_pressed("left2"):
+		# Se añade una consulta para saber si se está activada la animación de ladrido
+		if Input.is_action_pressed("right2") && !Input.is_action_pressed("left2") && $AnimationPlayer.current_animation != "Bark":
 			velocity.x = max_hspeed
 			$AnimationPlayer.play("Run")
 			get_node( "Sprite" ).set_flip_h( true )
@@ -61,7 +61,9 @@ func _physics_process(delta):
 	
 			
 		if is_on_floor() && velocity.y > 0 && abs(velocity.x) == 0 :
-			if !Input.is_action_pressed("attack"):
+			# Se añade una consulta para saber si se está activada la animación de ladrido
+			# Si no está activada esa animación, entonces puede pasar a animar idle
+			if !Input.is_action_pressed("attack2") && $AnimationPlayer.current_animation != "Bark":
 				$AnimationPlayer.play("Idle")
 			else: 
 				$AnimationPlayer.play("Bark")
