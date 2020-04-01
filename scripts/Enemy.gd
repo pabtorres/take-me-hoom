@@ -24,6 +24,9 @@ func _ready():
 
 func _on_Enemy_area_entered(area):
 	pass
+	
+func shade():
+	modulate = Color(0,0,0)
 
 
 func _on_Enemy_body_entered(body):

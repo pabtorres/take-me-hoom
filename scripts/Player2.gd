@@ -25,6 +25,9 @@ export var velocity = Vector2.ZERO
 # Método creado para multiplicar por -1
 func reverse(val):
 	return -val
+	
+func shade():
+	modulate = Color(0,0,0)
 
 func _physics_process(delta):
 

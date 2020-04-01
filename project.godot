@@ -19,6 +19,10 @@ config/name="VideoJuegoAlpha"
 run/main_scene="res://scenes/Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globals="*res://scripts/Globals.gd"
+
 [input]
 
 left1={

@@ -25,6 +25,13 @@ export var velocity = Vector2.ZERO
 # Método creado para multiplicar por -1
 func reverse(val):
 	return -val
+	
+func _ready():
+	print("holaready")
+	Globals.control_node = get_tree().get_root().get_node("parent")
+	
+func shade():
+	pass
 
 func _physics_process(delta):
 
@@ -42,6 +49,8 @@ func _physics_process(delta):
 			velocity.y = -max_uspeed
 			gravity = max_gravity
 			$AnimationPlayer.play("Jump")
+			for node in get_children():
+				print(node)
 			
 		# Se añade una consulta para saber si se está activada la animación de ladrido
 		if Input.is_action_pressed("left1") && !Input.is_action_pressed("right1") && $AnimationPlayer.current_animation != "Bark":
