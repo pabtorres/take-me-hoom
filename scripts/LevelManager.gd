@@ -2,6 +2,10 @@ extends Node
 
 export(String, FILE, "*.tscn") var world_scene
 
+var day_pos = null
+var is_day = true
+var day_pos_2 = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

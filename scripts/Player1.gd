@@ -25,6 +25,10 @@ export var velocity = Vector2.ZERO
 # Método creado para multiplicar por -1
 func reverse(val):
 	return -val
+	
+func _ready():
+	if LevelManager.day_pos != null and LevelManager.is_day == true:
+		self.position = LevelManager.day_pos
 
 func _physics_process(delta):
 
@@ -58,10 +62,15 @@ func _physics_process(delta):
 			get_node( "Sprite" ).set_flip_h( true )
 			
 			
-		if Input.is_action_pressed("sleep"):
+		if Input.is_action_just_pressed("sleep"):
+			LevelManager.day_pos = self.position
+			print(self.global_position)
+			print(self.position)
+			LevelManager.is_day = false
 			LevelManager.change_level()
 			
 		if Input.is_action_pressed("awake"):
+			LevelManager.is_day = true
 			LevelManager.change_level_2()
 		
 	
