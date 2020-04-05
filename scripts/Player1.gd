@@ -57,6 +57,12 @@ func _physics_process(delta):
 			$AnimationPlayer.play("Run")
 			get_node( "Sprite" ).set_flip_h( true )
 			
+			
+		if Input.is_action_pressed("sleep"):
+			LevelManager.change_level()
+			
+		if Input.is_action_pressed("awake"):
+			LevelManager.change_level_2()
 		
 	
 			
