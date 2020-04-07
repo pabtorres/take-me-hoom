@@ -22,15 +22,16 @@ func _ready():
 #	pass
 
 
-func _on_Enemy_area_entered(area):
-	pass
-
 
 func _on_Enemy_body_entered(body):
+	print("hello")
 	if alive:
 		lifePoints-=10;
-	if lifePoints<=0:
-		alive=false
+		if lifePoints<=0:
+			alive=false
+			$icon.visible = not $icon.visible
+			
+			
 		
 	print(lifePoints)
 	print(alive)
