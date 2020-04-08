@@ -1,13 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Enemy.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 22.5776, 23.8689 )
-
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 9.92828, 13.3429 )
+extents = Vector2( 14.5678, 18.4413 )
 
 [node name="Enemy" type="Area2D"]
 position = Vector2( 29.9043, 60.5849 )
@@ -16,17 +13,11 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="moving2" type="CollisionShape2D" parent="."]
-position = Vector2( -0.71516, -0.657299 )
-shape = SubResource( 1 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 2.31595, 1.81996 )
+shape = SubResource( 2 )
 
 [node name="icon" type="Sprite" parent="."]
 position = Vector2( -0.697678, 1.00742 )
 scale = Vector2( 0.58949, 0.620933 )
 texture = ExtResource( 1 )
-
-[node name="moving" type="KinematicBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="moving"]
-scale = Vector2( 2.31595, 1.81996 )
-shape = SubResource( 2 )
