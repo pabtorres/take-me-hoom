@@ -1,4 +1,5 @@
 extends KinematicBody2D
+var direction='left'
 
 # Fricción
 var hfriction = 60
@@ -51,6 +52,11 @@ func _physics_process(delta):
 		# Se añade una consulta para saber si se está activada la animación de ladrido
 		if Input.is_action_pressed("left1") && !Input.is_action_pressed("right1") && $AnimationPlayer.current_animation != "Bark":
 			velocity.x = -max_hspeed
+			if direction=="right":
+				$Attack/Sprite.position.x-=20
+				$Attack.position.x *=-1
+				$Attack/Sprite.flip_h=false
+				direction="left"
 			$AnimationPlayer.play("Run")
 			get_node( "Sprite" ).set_flip_h( false )
 			
@@ -59,6 +65,11 @@ func _physics_process(delta):
 		# Se añade una consulta para saber si se está activada la animación de ladrido
 		if Input.is_action_pressed("right1") && !Input.is_action_pressed("left1") && $AnimationPlayer.current_animation != "Bark":
 			velocity.x = max_hspeed
+			if direction=="left":
+				$Attack.position.x *=-1
+				$Attack/Sprite.flip_h=true
+				$Attack/Sprite.position.x+=20
+				direction="right"
 			$AnimationPlayer.play("Run")
 			get_node( "Sprite" ).set_flip_h( true )
 			
