@@ -25,8 +25,10 @@ export var velocity = Vector2.ZERO
 # Método creado para multiplicar por -1
 func reverse(val):
 	return -val
+
 func set_attack(value: bool):
 	$Attack.disabled=!value
+	$Attack/Sprite.visible=not $Attack/Sprite.visible
 	
 	
 func _physics_process(delta):

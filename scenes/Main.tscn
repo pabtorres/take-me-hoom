@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/Player1.gd" type="Script" id=1]
 [ext_resource path="res://sprites/player/doggo_scarf.png" type="Texture" id=2]
 [ext_resource path="res://sprites/tile.png" type="Texture" id=3]
 [ext_resource path="res://sprites/TileB.png" type="Texture" id=4]
+[ext_resource path="res://sprites/player/wave.png" type="Texture" id=5]
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -168,11 +169,17 @@ hframes = 13
 frame = 1
 
 [node name="Attack" type="CollisionShape2D" parent="Player1"]
-position = Vector2( -39.6485, -5.98248 )
+position = Vector2( -34.6352, -7.50166 )
 rotation = 0.408407
 shape = SubResource( 8 )
 disabled = true
 one_way_collision_margin = 0.0
+
+[node name="Sprite" type="Sprite" parent="Player1/Attack"]
+visible = false
+position = Vector2( -5.32285, 2.12192 )
+scale = Vector2( 0.105782, 0.0946371 )
+texture = ExtResource( 5 )
 
 [node name="Enemy" parent="." instance=ExtResource( 6 )]
 position = Vector2( -134.996, 85.4179 )
