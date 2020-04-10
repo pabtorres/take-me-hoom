@@ -14,6 +14,12 @@ var max_gravity = 1000
 var tackle = false
 var tackle_friction = 120
 
+# Para esperar animación de dormir
+var sleep_animation = false
+
+# Para teletransportarse
+var teleport = false
+
 # Para poder lanzar proyectiles
 var bullet = true
 var bullet_cooldown = 0.25
@@ -22,6 +28,8 @@ var bullet_cooldown_counter = 0
 # Referencia gravedad
 export var gravity = 0
 export var velocity = Vector2.ZERO
+# Animation player of protagonist
+onready var anim_player = get_node("AnimationPlayer")
 
 # Método creado para multiplicar por -1
 func reverse(val):
@@ -32,17 +40,33 @@ func set_attack(value: bool):
 	$Attack/Sprite.visible=not $Attack/Sprite.visible
 	
 	
+func _ready():
+	if LevelManager.player_position_day != null and !LevelManager.is_player_sleeping:
+		self.position = LevelManager.player_position_day
+	
 func _physics_process(delta):
 
 	velocity.y += gravity * delta
 	move_and_slide(velocity, Vector2.UP, true)
 	
-	if !tackle:
+	if !sleep_animation:
 	
 		var hsign = sign(velocity.x)
 		velocity.x -= hsign * hfriction
 		if sign(velocity.x) != hsign:
 			velocity.x = 0
+			
+		if Input.is_action_pressed("sleep") and !LevelManager.is_player_sleeping:
+			LevelManager.is_player_sleeping = true
+			sleep_animation = true
+			$AnimationPlayer.play("Sleep")
+			LevelManager.player_position_day = self.position
+			
+		
+		if Input.is_action_just_pressed("awake") and LevelManager.is_player_sleeping:
+			LevelManager.is_player_sleeping = false
+			sleep_animation = true
+			$AnimationPlayer.play("Sleep")
 			
 		if Input.is_action_pressed("jump1") && gravity == 0:
 			velocity.y = -max_uspeed
@@ -72,8 +96,6 @@ func _physics_process(delta):
 				direction="right"
 			$AnimationPlayer.play("Run")
 			get_node( "Sprite" ).set_flip_h( true )
-			
-		
 	
 			
 		if is_on_floor() && velocity.y > 0 && abs(velocity.x) == 0 :
@@ -94,4 +116,13 @@ func _physics_process(delta):
 			gravity = max_gravity
 	
 		velocity.y = min(velocity.y, max_dspeed)
+		
+	else: #Sleep animation is active
+		teleport = true
+		if $AnimationPlayer.current_animation != "Sleep":
+			sleep_animation = false
+			if LevelManager.is_player_sleeping == true:
+				LevelManager.turn_to_night()
+			else:
+				LevelManager.turn_to_day()
 		

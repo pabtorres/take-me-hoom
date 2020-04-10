@@ -1,10 +1,8 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://scripts/Player1.gd" type="Script" id=1]
-[ext_resource path="res://sprites/player/doggo_scarf.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Player1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/tile.png" type="Texture" id=3]
 [ext_resource path="res://sprites/TileB.png" type="Texture" id=4]
-[ext_resource path="res://sprites/player/wave.png" type="Texture" id=5]
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -47,92 +45,6 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 1/shapes = [  ]
 1/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=3]
-
-[sub_resource type="Animation" id=4]
-resource_name = "Bark"
-length = 1.8
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.00192947, 0.2, 0.4, 0.8, 1.2, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 66, 70, 71, 66, 1 ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.8, 1.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [ true ],
-"method": "set_attack"
-}, {
-"args": [ false ],
-"method": "set_attack"
-} ]
-}
-
-[sub_resource type="Animation" id=5]
-length = 2.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.8, 1.1, 1.4, 1.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 1, 3, 0, 11, 9, 7, 5 ]
-}
-
-[sub_resource type="Animation" id=6]
-resource_name = "Jump"
-length = 2.3
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.126152, 2.00584 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 42, 71, 42 ]
-}
-
-[sub_resource type="Animation" id=7]
-length = 0.658
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( -0.00326902, 0.0741393, 0.164579, 0.279471, 0.367874, 0.483767 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 13, 14, 15, 16, 17, 18 ]
-}
-
-[sub_resource type="CircleShape2D" id=8]
-radius = 20.9649
-
 [node name="Root" type="Node2D"]
 scale = Vector2( 3, 3 )
 
@@ -144,43 +56,7 @@ cell_size = Vector2( 32, 32 )
 format = 1
 tile_data = PoolIntArray( 65524, 1, 0, 65525, 1, 0, 65526, 1, 0, 65527, 1, 0, 65528, 1, 0, 65529, 1, 0, 65530, 1, 0, 65531, 1, 0, 65532, 1, 0, 65533, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 131060, 1, 0, 131061, 1, 0, 131062, 1, 0, 131063, 1, 0, 131064, 1, 0, 131065, 1, 0, 131066, 1, 0, 131067, 1, 0, 131068, 1, 0, 131069, 1, 0, 131070, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 196596, 1, 0, 196597, 1, 0, 196598, 1, 0, 196599, 1, 0, 196600, 1, 0, 196601, 1, 0, 196602, 1, 0, 196603, 1, 0, 196604, 1, 0, 196605, 1, 0, 196606, 1, 0, 196607, 1, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 262132, 0, 0, 262133, 0, 0, 262134, 0, 0, 262135, 0, 0, 262136, 0, 0, 262137, 0, 0, 262138, 0, 0, 262139, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0 )
 
-[node name="Player1" type="KinematicBody2D" parent="."]
-position = Vector2( 166.416, 65.5145 )
-script = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player1"]
-shape = SubResource( 3 )
-
-[node name="Camera2D" type="Camera2D" parent="Player1"]
-current = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player1"]
-anims/Bark = SubResource( 4 )
-anims/Idle = SubResource( 5 )
-anims/Jump = SubResource( 6 )
-anims/Run = SubResource( 7 )
-
-[node name="Sprite" type="Sprite" parent="Player1"]
-position = Vector2( 4.548, 5.48001 )
-scale = Vector2( 0.314188, 0.314188 )
-texture = ExtResource( 2 )
-vframes = 12
-hframes = 13
-frame = 1
-
-[node name="Attack" type="CollisionShape2D" parent="Player1"]
-position = Vector2( -34.6352, -5.83498 )
-rotation = 0.408407
-shape = SubResource( 8 )
-disabled = true
-one_way_collision_margin = 0.0
-
-[node name="Sprite" type="Sprite" parent="Player1/Attack"]
-visible = false
-position = Vector2( -4.02307, 4.00409 )
-rotation = -0.404916
-scale = Vector2( 0.105782, 0.0946371 )
-texture = ExtResource( 5 )
+[node name="Player1" parent="." instance=ExtResource( 1 )]
 
 [node name="Enemy" parent="." instance=ExtResource( 6 )]
 position = Vector2( -134.996, 85.4179 )
