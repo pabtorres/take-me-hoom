@@ -72,9 +72,13 @@ func _physics_process(delta):
 			velocity.y = -max_uspeed
 			gravity = max_gravity
 			$AnimationPlayer.play("Jump")
+		
+		# Permite realizar ataque mientras se está en el aire
+		if Input.is_action_pressed("attack1") && gravity != 0:
+			$AnimationPlayer.play("OnAirBark")
 			
 		# Se añade una consulta para saber si se está activada la animación de ladrido
-		if Input.is_action_pressed("left1") && !Input.is_action_pressed("right1") && $AnimationPlayer.current_animation != "Bark":
+		if Input.is_action_pressed("left1") && !Input.is_action_pressed("right1") && $AnimationPlayer.current_animation != "Bark" && $AnimationPlayer.current_animation != "OnAirBark":
 			velocity.x = -max_hspeed
 			if direction=="right":
 				$Attack/Sprite.position.x-=20
@@ -87,7 +91,7 @@ func _physics_process(delta):
 		
 				
 		# Se añade una consulta para saber si se está activada la animación de ladrido
-		if Input.is_action_pressed("right1") && !Input.is_action_pressed("left1") && $AnimationPlayer.current_animation != "Bark":
+		if Input.is_action_pressed("right1") && !Input.is_action_pressed("left1") && $AnimationPlayer.current_animation != "Bark" && $AnimationPlayer.current_animation != "OnAirBark":
 			velocity.x = max_hspeed
 			if direction=="left":
 				$Attack.position.x *=-1

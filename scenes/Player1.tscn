@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://sprites/player/wave.png" type="Texture" id=1]
 [ext_resource path="res://sprites/player/doggo_scarf.png" type="Texture" id=2]
@@ -71,6 +71,39 @@ tracks/0/keys = {
 "values": [ 42, 71, 42 ]
 }
 
+[sub_resource type="Animation" id=8]
+resource_name = "OnAirBark"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 65 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_attack"
+}, {
+"args": [ false ],
+"method": "set_attack"
+} ]
+}
+
 [sub_resource type="Animation" id=5]
 length = 0.658
 loop = true
@@ -120,6 +153,7 @@ current = true
 anims/Bark = SubResource( 2 )
 anims/Idle = SubResource( 3 )
 anims/Jump = SubResource( 4 )
+anims/OnAirBark = SubResource( 8 )
 anims/Run = SubResource( 5 )
 anims/Sleep = SubResource( 7 )
 
@@ -129,7 +163,7 @@ scale = Vector2( 0.314188, 0.314188 )
 texture = ExtResource( 2 )
 vframes = 12
 hframes = 13
-frame = 1
+frame = 65
 
 [node name="Attack" type="CollisionShape2D" parent="."]
 position = Vector2( -34.6352, -5.83498 )
