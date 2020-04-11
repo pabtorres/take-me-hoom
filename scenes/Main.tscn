@@ -58,7 +58,7 @@ tile_data = PoolIntArray( 65524, 1, 0, 65525, 1, 0, 65526, 1, 0, 65527, 1, 0, 65
 
 [node name="Player1" parent="." instance=ExtResource( 1 )]
 
-[node name="Enemy" parent="." instance=ExtResource( 6 )]
-position = Vector2( -134.996, 85.4179 )
-[connection signal="area_entered" from="Enemy" to="Enemy" method="_on_Enemy_area_entered"]
-[connection signal="body_entered" from="Enemy" to="Enemy" method="_on_Enemy_body_entered"]
+[node name="Zorro" parent="." instance=ExtResource( 6 )]
+position = Vector2( -112.088, 88.4313 )
+[connection signal="area_entered" from="Zorro" to="Zorro" method="_on_Enemy_area_entered"]
+[connection signal="body_entered" from="Zorro" to="Zorro" method="_on_Enemy_body_entered"]

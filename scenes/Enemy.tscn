@@ -1,23 +1,106 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://sprites/ennemies/fox.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Enemy.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 14.5678, 18.4413 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7.54087, 10.5988 )
 
-[node name="Enemy" type="Area2D"]
-position = Vector2( 29.9043, 60.5849 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
+[sub_resource type="Animation" id=3]
+resource_name = "Attack"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 49, 48, 30, 31, 30, 21 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_attack"
+}, {
+"args": [ false ],
+"method": "set_attack"
+} ]
 }
 
+[sub_resource type="Animation" id=5]
+resource_name = "Die"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 39, 43 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Idle"
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 15, 17, 18, 19, 20, 21 ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 11.9062, 23.9581 )
+
+[node name="Enemy" type="Area2D"]
+position = Vector2( 21.6784, 63.2528 )
+collision_layer = 4
+collision_mask = 3
+script = ExtResource( 2 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.33394, 2.89019 )
 scale = Vector2( 2.31595, 1.81996 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="icon" type="Sprite" parent="."]
-position = Vector2( -0.697678, 1.00742 )
-scale = Vector2( 0.58949, 0.620933 )
+position = Vector2( 1.52375, -11.0218 )
+scale = Vector2( 1.12445, 1.18443 )
 texture = ExtResource( 1 )
+flip_h = true
+vframes = 6
+hframes = 9
+frame = 43
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Attack = SubResource( 3 )
+anims/Die = SubResource( 5 )
+anims/Idle = SubResource( 2 )
+
+[node name="Attack" type="CollisionShape2D" parent="."]
+position = Vector2( 24.9001, 1.33392 )
+shape = SubResource( 4 )
+disabled = true
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
