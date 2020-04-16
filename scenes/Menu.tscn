@@ -15,19 +15,19 @@ font_data = ExtResource( 1 )
 size = 22
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=7]
-size = 22
-font_data = ExtResource( 1 )
-
 [sub_resource type="DynamicFont" id=4]
 size = 22
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=5]
-size = 18
+size = 22
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=6]
+size = 18
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
 font_data = ExtResource( 1 )
 
 [node name="Menu" type="Node2D"]
@@ -88,14 +88,14 @@ text = "Load Game"
 margin_top = 116.0
 margin_right = 448.0
 margin_bottom = 159.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 4 )
 text = "Settings"
 
 [node name="Credits" type="Button" parent="CanvasLayer/VBoxContainer/ButtonContainer"]
 margin_top = 174.0
 margin_right = 448.0
 margin_bottom = 217.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Credits"
 
 [node name="GroupName" type="Label" parent="CanvasLayer"]
@@ -103,7 +103,7 @@ margin_left = 809.0
 margin_top = 563.0
 margin_right = 1017.0
 margin_bottom = 594.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "Traveler Entertainment"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -114,7 +114,7 @@ margin_left = 11.0
 margin_top = 565.0
 margin_right = 164.0
 margin_bottom = 592.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "v0.1 - Alpha Version"
 __meta__ = {
 "_edit_use_anchors_": false

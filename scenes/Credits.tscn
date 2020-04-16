@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://fonts/Gotu/Gotu-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/Credits.gd" type="Script" id=2]
@@ -8,18 +8,30 @@ size = 40
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 34
+size = 30
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 34
+size = 26
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 34
+size = 26
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=5]
+size = 26
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 26
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=8]
 size = 18
 font_data = ExtResource( 1 )
 
@@ -51,44 +63,78 @@ custom_fonts/font = SubResource( 1 )
 text = "Traveler Entertainment"
 align = 1
 
-[node name="TeamNames" type="VBoxContainer" parent="CanvasLayer/Panel/VBoxContainer"]
-margin_left = 387.0
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/VBoxContainer"]
+margin_left = 131.0
 margin_top = 147.0
-margin_right = 636.0
-margin_bottom = 338.0
+margin_right = 893.0
+margin_bottom = 360.0
+size_flags_horizontal = 4
+custom_constants/separation = 200
+
+[node name="TeamNames" type="VBoxContainer" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer"]
+margin_right = 376.0
+margin_bottom = 213.0
 size_flags_horizontal = 4
 custom_constants/separation = 10
 alignment = 1
 
-[node name="Adele" type="Label" parent="CanvasLayer/Panel/VBoxContainer/TeamNames"]
-margin_right = 249.0
-margin_bottom = 57.0
+[node name="Design" type="Label" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer/TeamNames"]
+margin_right = 376.0
+margin_bottom = 51.0
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Design and Programation"
+align = 1
+
+[node name="Adele" type="Label" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer/TeamNames"]
+margin_top = 61.0
+margin_right = 376.0
+margin_bottom = 105.0
+custom_fonts/font = SubResource( 3 )
 text = "Adèle Bourgeix"
 align = 1
 
-[node name="Pablo" type="Label" parent="CanvasLayer/Panel/VBoxContainer/TeamNames"]
-margin_top = 67.0
-margin_right = 249.0
-margin_bottom = 124.0
-custom_fonts/font = SubResource( 3 )
+[node name="Pablo" type="Label" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer/TeamNames"]
+margin_top = 115.0
+margin_right = 376.0
+margin_bottom = 159.0
+custom_fonts/font = SubResource( 4 )
 text = "Pablo Torres"
 align = 1
 
-[node name="Tomas" type="Label" parent="CanvasLayer/Panel/VBoxContainer/TeamNames"]
-margin_top = 134.0
-margin_right = 249.0
-margin_bottom = 191.0
-custom_fonts/font = SubResource( 4 )
+[node name="Tomas" type="Label" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer/TeamNames"]
+margin_top = 169.0
+margin_right = 376.0
+margin_bottom = 213.0
+custom_fonts/font = SubResource( 5 )
 text = "Tomás Estévez"
 align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer"]
+margin_left = 576.0
+margin_right = 762.0
+margin_bottom = 213.0
+
+[node name="Music" type="Label" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 186.0
+margin_bottom = 51.0
+custom_fonts/font = SubResource( 6 )
+text = "Music"
+align = 1
+
+[node name="bensound" type="Label" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 55.0
+margin_right = 186.0
+margin_bottom = 99.0
+custom_fonts/font = SubResource( 7 )
+text = "bensound.com"
 
 [node name="BackToMenu" type="Button" parent="CanvasLayer/Panel"]
 margin_left = 35.0
 margin_top = 530.0
 margin_right = 218.0
 margin_bottom = 567.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 8 )
 text = "Back to Main Menu"
 __meta__ = {
 "_edit_use_anchors_": false
