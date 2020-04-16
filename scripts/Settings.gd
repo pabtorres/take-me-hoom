@@ -17,11 +17,12 @@ func _ready():
 
 func _on_Music_pressed():
 	Global.settings["Music"] = !Global.settings["Music"]
-	print(Global.settings["Music"])
+	var music_player = get_tree().get_nodes_in_group("MainMenuMusic")[0]
+	music_player.set_stream_paused(!Global.settings["Music"])
+	
 
 func _on_SoundEffects_pressed():
 	Global.settings["SoundEffects"] = !Global.settings["SoundEffects"]
-	print(Global.settings["SoundEffects"])
 
 func _on_BackToMenu_pressed():
 	get_tree().change_scene("res://scenes/Menu.tscn")
