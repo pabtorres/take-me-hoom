@@ -100,6 +100,10 @@ func _physics_process(delta):
 				direction="right"
 			$AnimationPlayer.play("Run")
 			get_node( "Sprite" ).set_flip_h( true )
+			
+		# Acción para activar shader
+		if Input.is_action_just_pressed("dark_place"):
+			LevelManager.dark_zone = true
 	
 			
 		if is_on_floor() && velocity.y > 0 && abs(velocity.x) == 0 :
@@ -109,13 +113,9 @@ func _physics_process(delta):
 				$AnimationPlayer.play("Idle")
 			else: 
 				$AnimationPlayer.play("Bark")
-			
-			
-			
-			
-			
 			gravity = 0
 			velocity.y = 0
+
 		else:
 			gravity = max_gravity
 	

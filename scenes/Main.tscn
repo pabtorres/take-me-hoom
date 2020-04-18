@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/Player1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/CircleFade.gd" type="Script" id=2]
 [ext_resource path="res://sprites/tile.png" type="Texture" id=3]
 [ext_resource path="res://sprites/TileB.png" type="Texture" id=4]
+[ext_resource path="res://scenes/CircleFader.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -47,6 +49,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [node name="Root" type="Node2D"]
 scale = Vector2( 3, 3 )
+script = ExtResource( 2 )
 
 [node name="Level" type="Node2D" parent="."]
 
@@ -60,5 +63,7 @@ tile_data = PoolIntArray( 65524, 1, 0, 65525, 1, 0, 65526, 1, 0, 65527, 1, 0, 65
 
 [node name="Zorro" parent="." instance=ExtResource( 6 )]
 position = Vector2( -112.088, 88.4313 )
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 5 )]
 [connection signal="area_entered" from="Zorro" to="Zorro" method="_on_Enemy_area_entered"]
 [connection signal="body_entered" from="Zorro" to="Zorro" method="_on_Enemy_body_entered"]
