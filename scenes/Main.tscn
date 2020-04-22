@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/Player1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/CircleFade.gd" type="Script" id=2]
@@ -6,6 +6,10 @@
 [ext_resource path="res://sprites/TileB.png" type="Texture" id=4]
 [ext_resource path="res://scenes/CircleFader.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sprites/ennemies/owl.png" type="Texture" id=7]
+[ext_resource path="res://scripts/owl.gd" type="Script" id=8]
+[ext_resource path="res://sprites/ennemies/Tornado_exe6.png" type="Texture" id=9]
+[ext_resource path="res://scripts/Tornado.gd" type="Script" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -47,6 +51,44 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 1/shapes = [  ]
 1/z_index = 0
 
+[sub_resource type="CircleShape2D" id=3]
+radius = 16.3368
+
+[sub_resource type="Animation" id=4]
+resource_name = "Idle"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 26, 27, 28, 29, 30, 31, 30, 29, 28, 27, 26, 25 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=5]
+
+[sub_resource type="Animation" id=6]
+resource_name = "Blow"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+
 [node name="Root" type="Node2D"]
 scale = Vector2( 3, 3 )
 script = ExtResource( 2 )
@@ -65,5 +107,43 @@ tile_data = PoolIntArray( 65524, 1, 0, 65525, 1, 0, 65526, 1, 0, 65527, 1, 0, 65
 position = Vector2( -112.088, 88.4313 )
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 5 )]
+
+[node name="Owl" type="Area2D" parent="."]
+position = Vector2( -261.113, 53.6764 )
+script = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Owl"]
+position = Vector2( -6.8273, 7.40117 )
+shape = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Owl"]
+anims/Idle = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Owl"]
+position = Vector2( -3.87181, 3.37315 )
+scale = Vector2( 0.782738, 0.782738 )
+texture = ExtResource( 7 )
+flip_h = true
+vframes = 6
+hframes = 9
+frame = 25
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( -184.882, 43.2593 )
+script = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -3.36157, 7.22736 )
+shape = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Area2D"]
+position = Vector2( -4.1179, 7.09984 )
+scale = Vector2( 0.716007, 0.716007 )
+texture = ExtResource( 9 )
+hframes = 6
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
+anims/Blow = SubResource( 6 )
 [connection signal="area_entered" from="Zorro" to="Zorro" method="_on_Enemy_area_entered"]
 [connection signal="body_entered" from="Zorro" to="Zorro" method="_on_Enemy_body_entered"]
