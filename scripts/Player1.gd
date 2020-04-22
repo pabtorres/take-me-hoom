@@ -58,6 +58,7 @@ func _physics_process(delta):
 			
 		if Input.is_action_pressed("sleep") and !LevelManager.is_player_sleeping:
 			LevelManager.is_player_sleeping = true
+			MusicManager.can_change_music = true
 			sleep_animation = true
 			$AnimationPlayer.play("Sleep")
 			LevelManager.player_position_day = self.position
@@ -65,6 +66,7 @@ func _physics_process(delta):
 		
 		if Input.is_action_just_pressed("awake") and LevelManager.is_player_sleeping:
 			LevelManager.is_player_sleeping = false
+			MusicManager.can_change_music = true
 			sleep_animation = true
 			$AnimationPlayer.play("Sleep")
 			

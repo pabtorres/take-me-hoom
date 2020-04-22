@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 LevelManager="*res://scripts/LevelManager.gd"
+MusicManager="*res://scripts/MusicManager.gd"
 
 [input]
 
