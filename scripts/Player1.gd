@@ -5,10 +5,10 @@ var direction='left'
 var hfriction = 60
 
 # Restricciones de velocidad
-var max_hspeed = 350
-var max_uspeed = 600
+var hspeed = 350
+var vspeed = 600
 var max_dspeed = 480
-var max_gravity = 1000
+var gravity = 1000
 
 # Para poder tacklear
 var tackle = false
@@ -26,10 +26,12 @@ var bullet_cooldown = 0.25
 var bullet_cooldown_counter = 0
 
 # Referencia gravedad
-export var gravity = 0
 export var velocity = Vector2.ZERO
 # Animation player of protagonist
-onready var anim_player = get_node("AnimationPlayer")
+onready var anim_player = $AnimationPlayer
+
+# right = 1 / left = -1
+var facing = -1
 
 # Método creado para multiplicar por -1
 func reverse(val):
@@ -41,94 +43,86 @@ func set_attack(value: bool):
 	
 	
 func _ready():
-	if LevelManager.player_position_day != null and !LevelManager.is_player_sleeping:
-		self.position = LevelManager.player_position_day
+	if LevelManager.player_position_day and !LevelManager.is_player_sleeping:
+		position = LevelManager.player_position_day
+	if LevelManager.player_position_night and LevelManager.is_player_sleeping:
+		position = LevelManager.player_position_night
+	anim_player.connect("animation_finished", self, "on_animation_finished")
+	
+func on_animation_finished(anim_name: String):
+	if anim_name == "Sleep":
+		if LevelManager.is_player_sleeping == true:
+			LevelManager.turn_to_night()
+		else:
+			LevelManager.turn_to_day()
 	
 func _physics_process(delta):
 
+	# Gravity
 	velocity.y += gravity * delta
-	move_and_slide(velocity, Vector2.UP, true)
+	velocity = move_and_slide(velocity, Vector2.UP, true)
 	
-	if !sleep_animation:
+	var on_floor = is_on_floor()
 	
-		var hsign = sign(velocity.x)
-		velocity.x -= hsign * hfriction
-		if sign(velocity.x) != hsign:
-			velocity.x = 0
-			
-		if Input.is_action_pressed("sleep") and !LevelManager.is_player_sleeping:
+	if on_floor:
+		if Input.is_action_just_pressed("jump1"):
+			velocity.y = -vspeed
+		
+		
+		if Input.is_action_just_pressed("sleep") and !LevelManager.is_player_sleeping:
 			LevelManager.is_player_sleeping = true
 			MusicManager.can_change_music = true
-			sleep_animation = true
-			$AnimationPlayer.play("Sleep")
+			anim_player.play("Sleep")
 			LevelManager.player_position_day = self.position
-			
+			set_physics_process(false)
+			return
 		
+	
 		if Input.is_action_just_pressed("awake") and LevelManager.is_player_sleeping:
 			LevelManager.is_player_sleeping = false
 			MusicManager.can_change_music = true
-			sleep_animation = true
-			$AnimationPlayer.play("Sleep")
-			
-		if Input.is_action_pressed("jump1") && gravity == 0:
-			velocity.y = -max_uspeed
-			gravity = max_gravity
-			$AnimationPlayer.play("Jump")
+			anim_player.play("Sleep")
+			LevelManager.player_position_night = self.position
+			set_physics_process(false)
+			return
 		
-		# Permite realizar ataque mientras se está en el aire
-		if Input.is_action_pressed("attack1") && gravity != 0:
-			$AnimationPlayer.play("OnAirBark")
-			
-		# Se añade una consulta para saber si se está activada la animación de ladrido
-		if Input.is_action_pressed("left1") && !Input.is_action_pressed("right1") && $AnimationPlayer.current_animation != "Bark" && $AnimationPlayer.current_animation != "OnAirBark":
-			velocity.x = -max_hspeed
-			if direction=="right":
-				$Attack/Sprite.position.x-=20
-				$Attack.position.x *=-1
-				$Attack/Sprite.flip_h=false
-				direction="left"
-			$AnimationPlayer.play("Run")
-			get_node( "Sprite" ).set_flip_h( false )
-			
-		
-				
-		# Se añade una consulta para saber si se está activada la animación de ladrido
-		if Input.is_action_pressed("right1") && !Input.is_action_pressed("left1") && $AnimationPlayer.current_animation != "Bark" && $AnimationPlayer.current_animation != "OnAirBark":
-			velocity.x = max_hspeed
-			if direction=="left":
-				$Attack.position.x *=-1
-				$Attack/Sprite.flip_h=true
-				$Attack/Sprite.position.x+=20
-				direction="right"
-			$AnimationPlayer.play("Run")
-			get_node( "Sprite" ).set_flip_h( true )
+		if Input.is_action_just_pressed("attack1"):
+			pass
 			
 		# Acción para activar shader
 		if Input.is_action_just_pressed("dark_place"):
 			LevelManager.dark_zone = true
+		
+	var target_vel = (Input.get_action_strength("right1") - Input.get_action_strength("left1")) * hspeed
+	velocity.x = lerp(velocity.x, target_vel, 0.25)
 	
-			
-		if is_on_floor() && velocity.y > 0 && abs(velocity.x) == 0 :
-			# Se añade una consulta para saber si se está activada la animación de ladrido
-			# Si no está activada esa animación, entonces puede pasar a animar idle
-			if !Input.is_action_pressed("attack1") && $AnimationPlayer.current_animation != "Bark":
-				$AnimationPlayer.play("Idle")
-			else: 
-				$AnimationPlayer.play("Bark")
-			gravity = 0
-			velocity.y = 0
+	# Stop if barking
+	if on_floor:
+		if Input.is_action_just_pressed("attack1") or anim_player.current_animation == "Bark":
+			velocity.x = 0
+	
+	if target_vel != 0:
+		var new_facing = sign(target_vel)
+		if facing != new_facing:
+			scale.x = -1
+			facing = new_facing
+		
 
-		else:
-			gravity = max_gravity
+	# Animation
 	
-		velocity.y = min(velocity.y, max_dspeed)
-		
-	else: #Sleep animation is active
-		teleport = true
-		if $AnimationPlayer.current_animation != "Sleep":
-			sleep_animation = false
-			if LevelManager.is_player_sleeping == true:
-				LevelManager.turn_to_night()
+	anim_player.playback_speed = 1
+	
+	if on_floor:
+		if Input.is_action_just_pressed("attack1"):
+			anim_player.play("Bark")
+		if anim_player.current_animation != "Bark":
+			if abs(velocity.x) > 10.0:
+				anim_player.play("Run")
+				anim_player.playback_speed = 2 * abs(velocity.x)/hspeed
 			else:
-				LevelManager.turn_to_day()
-		
+				anim_player.play("Idle")
+	else:
+		if Input.is_action_just_pressed("attack1"):
+			anim_player.play("OnAirBark")
+		if anim_player.current_animation != "OnAirBark":
+			anim_player.play("Jump")
