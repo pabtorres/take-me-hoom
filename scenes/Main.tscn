@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scenes/Player1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/CircleFade.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://sprites/backgrounds/Landscape 1.png" type="Texture" id=11]
 [ext_resource path="res://sprites/keyitems/chest_closed.png" type="Texture" id=12]
 [ext_resource path="res://scripts/Chest.gd" type="Script" id=13]
+[ext_resource path="res://sprites/sign.png" type="Texture" id=14]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -95,6 +96,9 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 20, 20 )
 
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 24.0916, 27.7098 )
+
 [node name="Root" type="Node2D"]
 scale = Vector2( 3, 3 )
 script = ExtResource( 2 )
@@ -142,7 +146,7 @@ shape = SubResource( 3 )
 anims/Idle = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="Owl"]
-position = Vector2( -3.87181, 3.37315 )
+position = Vector2( -7.66844, -1.94212 )
 scale = Vector2( 0.782738, 0.782738 )
 texture = ExtResource( 7 )
 flip_h = true
@@ -150,22 +154,23 @@ vframes = 6
 hframes = 9
 frame = 25
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Tornado" type="Area2D" parent="."]
+visible = false
 position = Vector2( -184.882, 43.2593 )
 script = ExtResource( 10 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tornado"]
 position = Vector2( -3.36157, 7.22736 )
 shape = SubResource( 5 )
 
-[node name="Sprite" type="Sprite" parent="Area2D"]
+[node name="Sprite" type="Sprite" parent="Tornado"]
 position = Vector2( -4.1179, 7.09984 )
 scale = Vector2( 0.716007, 0.716007 )
 texture = ExtResource( 9 )
 hframes = 6
 frame = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Tornado"]
 anims/Blow = SubResource( 6 )
 
 [node name="Chest" type="Area2D" parent="."]
@@ -183,5 +188,21 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chest"]
 shape = SubResource( 7 )
+
+[node name="Sign" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2( -223.318, 87.2877 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sign"]
+position = Vector2( 0.151871, 0 )
+shape = SubResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Sign"]
+position = Vector2( 0.0219727, -0.276978 )
+scale = Vector2( 0.0571569, 0.0571569 )
+texture = ExtResource( 14 )
 [connection signal="area_entered" from="Zorro" to="Zorro" method="_on_Enemy_area_entered"]
 [connection signal="body_entered" from="Zorro" to="Zorro" method="_on_Enemy_body_entered"]
