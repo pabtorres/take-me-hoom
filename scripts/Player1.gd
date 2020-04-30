@@ -4,6 +4,8 @@ var direction='left'
 # Fricción
 var hfriction = 60
 
+var life=1000
+
 # Restricciones de velocidad
 var hspeed = 350
 var vspeed = 600
@@ -126,3 +128,8 @@ func _physics_process(delta):
 			anim_player.play("OnAirBark")
 		if anim_player.current_animation != "OnAirBark":
 			anim_player.play("Jump")
+
+
+func _on_Area2D_area_entered(area):
+	life-=10
+	$ProgressBar.value=life
