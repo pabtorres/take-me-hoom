@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/Player1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/CircleFade.gd" type="Script" id=2]
@@ -8,8 +8,7 @@
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://sprites/ennemies/owl.png" type="Texture" id=7]
 [ext_resource path="res://scripts/owl.gd" type="Script" id=8]
-[ext_resource path="res://sprites/ennemies/Tornado_exe6.png" type="Texture" id=9]
-[ext_resource path="res://scripts/Tornado.gd" type="Script" id=10]
+[ext_resource path="res://scenes/Tornado.tscn" type="PackedScene" id=9]
 [ext_resource path="res://sprites/backgrounds/Landscape 1.png" type="Texture" id=11]
 [ext_resource path="res://sprites/keyitems/chest_closed.png" type="Texture" id=12]
 [ext_resource path="res://scripts/Chest.gd" type="Script" id=13]
@@ -74,25 +73,6 @@ tracks/0/keys = {
 "values": [ 26, 27, 28, 29, 30, 31, 30, 29, 28, 27, 26, 25 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=5]
-
-[sub_resource type="Animation" id=6]
-resource_name = "Blow"
-length = 0.5
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4 ]
-}
-
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 20, 20 )
 
@@ -152,26 +132,11 @@ texture = ExtResource( 7 )
 flip_h = true
 vframes = 6
 hframes = 9
-frame = 25
+frame = 26
 
-[node name="Tornado" type="Area2D" parent="."]
+[node name="Tornado" parent="." instance=ExtResource( 9 )]
 visible = false
-position = Vector2( -184.882, 43.2593 )
-script = ExtResource( 10 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tornado"]
-position = Vector2( -3.36157, 7.22736 )
-shape = SubResource( 5 )
-
-[node name="Sprite" type="Sprite" parent="Tornado"]
-position = Vector2( -4.1179, 7.09984 )
-scale = Vector2( 0.716007, 0.716007 )
-texture = ExtResource( 9 )
-hframes = 6
-frame = 3
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Tornado"]
-anims/Blow = SubResource( 6 )
+position = Vector2( -188.982, 47.6634 )
 
 [node name="Chest" type="Area2D" parent="."]
 position = Vector2( -351.611, 76.4869 )
@@ -190,8 +155,7 @@ __meta__ = {
 shape = SubResource( 7 )
 
 [node name="Sign" type="StaticBody2D" parent="."]
-visible = false
-position = Vector2( -223.318, 87.2877 )
+position = Vector2( -318.757, 90.6041 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -204,5 +168,8 @@ shape = SubResource( 8 )
 position = Vector2( 0.0219727, -0.276978 )
 scale = Vector2( 0.0571569, 0.0571569 )
 texture = ExtResource( 14 )
+
+[node name="Bullets" type="Node2D" parent="."]
+position = Vector2( -266.608, 61.6258 )
 [connection signal="area_entered" from="Zorro" to="Zorro" method="_on_Enemy_area_entered"]
 [connection signal="body_entered" from="Zorro" to="Zorro" method="_on_Enemy_body_entered"]
