@@ -99,6 +99,7 @@ func _physics_process(delta):
 				$Attack.position.x *=-1
 				$Attack/Sprite.flip_h=true
 				$Attack/Sprite.position.x+=20
+				
 				direction="right"
 			$AnimationPlayer.play("Run")
 			get_node( "Sprite" ).set_flip_h( true )

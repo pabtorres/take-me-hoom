@@ -1,6 +1,7 @@
 extends KinematicBody2D
 var direction='left'
-
+# Para poder contabilizar vida del jugador
+var life=1000
 # Fricción
 var hfriction = 60
 
@@ -126,3 +127,12 @@ func _physics_process(delta):
 			anim_player.play("OnAirBark")
 		if anim_player.current_animation != "OnAirBark":
 			anim_player.play("Jump")
+
+
+
+
+
+func _on_Area2D_area_entered(area):
+	life-=10
+	$ProgressBar.value=life
+	

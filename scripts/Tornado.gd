@@ -1,10 +1,9 @@
 extends Area2D
 
-var dir="left"
 
-var destroyed = false
+# Movimiento del tornado
 var speed = 130
-
+var dir="left"
 var velocity = Vector2.ZERO
 
 
@@ -15,10 +14,8 @@ func _ready():
 	else:
 		velocity = speed * (-0.8*transform.x+0.2*transform.y)
 	
-	pass # Replace with function body.
+	
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$AnimationPlayer.play("Blow")
 	position += velocity * delta
