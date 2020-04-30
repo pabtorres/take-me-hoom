@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/PRDS01_NOCHE.ogg-58f01fdc20f00f4abb813bb122ce3bc1.oggstr"
+
+[deps]
+
+source_file="res://music/PRDS01_NOCHE.ogg"
+dest_files=[ "res://.import/PRDS01_NOCHE.ogg-58f01fdc20f00f4abb813bb122ce3bc1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

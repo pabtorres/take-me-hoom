@@ -23,7 +23,7 @@ config/icon="res://icon.png"
 
 Global="*res://Global.gd"
 LevelManager="*res://scripts/LevelManager.gd"
-MainMenuMusic="*res://scenes/MusicSingleton.tscn"
+MusicManager="*res://scripts/MusicManager.gd"
 
 [input]
 

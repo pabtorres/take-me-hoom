@@ -12,6 +12,8 @@ var dark_zone = false
 
 func turn_to_night():
 	get_tree().change_scene("res://scenes/DesertNight.tscn")
+	MusicManager.change_desert_night_music()
 	
 func turn_to_day():
 	get_tree().change_scene("res://scenes/DesertDay.tscn")
+	MusicManager.change_desert_day_music()
