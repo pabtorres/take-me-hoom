@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.54087, 10.5988 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "Attack"
 length = 1.4
 tracks/0/type = "value"
@@ -39,7 +39,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "Die"
 length = 0.8
 tracks/0/type = "value"
@@ -55,8 +55,7 @@ tracks/0/keys = {
 "values": [ 39, 43 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Idle"
+[sub_resource type="Animation" id=4]
 step = 0.15
 tracks/0/type = "value"
 tracks/0/path = NodePath("icon:frame")
@@ -71,7 +70,7 @@ tracks/0/keys = {
 "values": [ 15, 17, 18, 19, 20, 21 ]
 }
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 11.9062, 23.9581 )
 
 [node name="Enemy" type="Area2D"]
@@ -95,12 +94,12 @@ hframes = 9
 frame = 43
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Attack = SubResource( 3 )
-anims/Die = SubResource( 5 )
-anims/Idle = SubResource( 2 )
+anims/Attack = SubResource( 2 )
+anims/Die = SubResource( 3 )
+anims/Idle = SubResource( 4 )
 
 [node name="Attack" type="CollisionShape2D" parent="."]
 position = Vector2( 24.9001, 1.33392 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 disabled = true
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
