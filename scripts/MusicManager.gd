@@ -16,7 +16,6 @@ func _ready():
 	 play()
 	
 func _process(delta):
-	"""
 	if (LevelManager.is_player_sleeping and can_change_music):
 		var audiostream = load("res://music/" + tracks[1])
 		set_stream(audiostream)
@@ -27,8 +26,6 @@ func _process(delta):
 		set_stream(audiostream)
 		play()
 		can_change_music = false
-	"""
-	pass
 
 func change_desert_day_music():
 	var audiostream = load("res://music/" + tracks[2])

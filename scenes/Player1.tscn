@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://sprites/player/wave.png" type="Texture" id=1]
 [ext_resource path="res://sprites/player/doggo_scarf.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 radius = 20.9649
 
 [sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 9.66748, 5.21369 )
 
 [sub_resource type="Animation" id=3]
 length = 1.8
@@ -136,8 +137,11 @@ tracks/0/keys = {
 "values": [ 65, 66, 67, 68, 69, 68 ]
 }
 
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 32, 16 )
+
 [sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 32.2877, 17.0466 )
+extents = Vector2( 17.7447, 20.0426 )
 
 [node name="Player1" type="KinematicBody2D"]
 position = Vector2( -289.567, 96.7795 )
@@ -159,7 +163,9 @@ scale = Vector2( 0.105782, 0.0946371 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -12.1906, -3.90118 )
 shape = SubResource( 2 )
+disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -180,13 +186,12 @@ scale = Vector2( 0.314188, 0.314188 )
 texture = ExtResource( 2 )
 vframes = 12
 hframes = 13
-frame = 13
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 2.3714, 11.3827 )
-shape = SubResource( 9 )
+position = Vector2( 9.56699, 15.2205 )
+shape = SubResource( 10 )
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 margin_left = -24.0
@@ -198,4 +203,9 @@ step = 10.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 11.4987, 11.1424 )
+z_as_relative = false
+shape = SubResource( 9 )
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
