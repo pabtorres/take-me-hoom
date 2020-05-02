@@ -12,7 +12,7 @@ radius = 20.9649
 extents = Vector2( 9.66748, 5.21369 )
 
 [sub_resource type="Animation" id=3]
-length = 1.8
+length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -20,7 +20,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.00192947, 0.2, 0.4, 0.8, 1.2, 1.5 ),
+"times": PoolRealArray( 0.00192947, 0.1, 0.2, 0.4, 0.5, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 66, 70, 71, 66, 1 ]
@@ -32,7 +32,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.8, 1.5 ),
+"times": PoolRealArray( 0.2, 0.7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [ true ],
@@ -75,7 +75,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=6]
-length = 0.3
+length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -83,10 +83,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 65 ]
+"values": [ 71, 70, 71 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -95,7 +95,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0.1, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [ true ],
@@ -168,13 +168,7 @@ shape = SubResource( 2 )
 disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2( 0, -130 )
 current = true
-drag_margin_v_enabled = true
-smoothing_enabled = true
-smoothing_speed = 3.0
-drag_margin_top = 0.75
-drag_margin_bottom = 0.0
 
 [node name="CanvasLayer" parent="Camera2D" instance=ExtResource( 4 )]
 
@@ -192,6 +186,7 @@ scale = Vector2( 0.314188, 0.314188 )
 texture = ExtResource( 2 )
 vframes = 12
 hframes = 13
+frame = 70
 
 [node name="Area2D" type="Area2D" parent="."]
 
