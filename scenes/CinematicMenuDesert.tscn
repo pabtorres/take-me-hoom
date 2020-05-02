@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/CinematicMenuDesert.gd" type="Script" id=1]
+[ext_resource path="res://sprites/cinematics/Cinematic1.jpeg" type="Texture" id=2]
+
+[node name="Root" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+margin_left = 878.317
+margin_top = 511.951
+margin_right = 991.317
+margin_bottom = 570.951
+text = "Start Adventure"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
