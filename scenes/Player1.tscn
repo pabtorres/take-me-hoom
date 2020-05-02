@@ -137,10 +137,10 @@ tracks/0/keys = {
 "values": [ 65, 66, 67, 68, 69, 68 ]
 }
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 32, 16 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 17.7447, 20.0426 )
 
 [node name="Player1" type="KinematicBody2D"]
@@ -168,7 +168,13 @@ shape = SubResource( 2 )
 disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 0, -130 )
 current = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 3.0
+drag_margin_top = 0.75
+drag_margin_bottom = 0.0
 
 [node name="CanvasLayer" parent="Camera2D" instance=ExtResource( 4 )]
 
@@ -191,7 +197,7 @@ hframes = 13
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 9.56699, 15.2205 )
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 margin_left = -24.0
@@ -207,5 +213,5 @@ __meta__ = {
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2( 11.4987, 11.1424 )
 z_as_relative = false
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

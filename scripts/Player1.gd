@@ -45,6 +45,8 @@ func set_attack(value: bool):
 	
 	
 func _ready():
+	# When player is instanciated, it is not in dark mode
+	LevelManager.dark_zone = false
 	if LevelManager.player_position_day and !LevelManager.is_player_sleeping:
 		position = LevelManager.player_position_day
 	if LevelManager.player_position_night and LevelManager.is_player_sleeping:

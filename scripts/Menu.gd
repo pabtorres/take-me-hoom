@@ -16,8 +16,7 @@ func _ready():
 #	pass
 
 func _on_NewGame_pressed():
-	get_tree().change_scene("res://scenes/DesertDay.tscn")
-	MusicManager.change_desert_day_music()
+	get_tree().change_scene("res://scenes/CinematicMenuDesert.tscn")
 
 func _on_LoadGame_pressed():
 	get_tree().change_scene("res://scenes/SavedGames.tscn")
