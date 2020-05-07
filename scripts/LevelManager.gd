@@ -7,6 +7,9 @@ var is_player_sleeping = false
 # Keys
 var keys = 0
 
+# Life Point
+var life_points = 1000
+
 # Controls if the zone has to be dark
 var dark_zone = false
 

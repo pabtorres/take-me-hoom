@@ -45,6 +45,8 @@ func set_attack(value: bool):
 	
 	
 func _ready():
+	# Get life points
+	$CanvasLayer/ProgressBar.value=LevelManager.life_points
 	# When player is instanciated, it is not in dark mode
 	LevelManager.dark_zone = false
 	if LevelManager.player_position_day and !LevelManager.is_player_sleeping:
@@ -133,5 +135,5 @@ func _physics_process(delta):
 
 
 func _on_Area2D_area_entered(area):
-	life-=10
-	$CanvasLayer/ProgressBar.value=life
+	LevelManager.life_points-=25
+	$CanvasLayer/ProgressBar.value=LevelManager.life_points
