@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 
 
 # Para que ataque cada 100 frames
@@ -18,7 +18,7 @@ func _ready():
 
 func set_attack(value: bool):
 	if alive==true:
-		$Attack.disabled=!value
+		$Area2D2/Attack.disabled=!value
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,27 +36,24 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name=="Die":
 		dead()
 
-func _on_Enemy_body_entered(body):
-	#print(body.get_name())
-	#print("hello")
+
+
+func dead():
+	$Area2D2/Attack.disabled=true
+	$Area2D/CollisionShape2D.disabled=true
+	$icon.visible = not $icon.visible
+
+
+
+
+
+
+
+func _on_Area2D_body_entered(body):
 	if alive:
 		lifePoints-=10;
 		if lifePoints<=0:
 			alive=false
 			print("dead")
 			$AnimationPlayer.play("Die")
-			#$Attack.disabled=true
-			#$CollisionShape2D.disabled=true
-			#$icon.visible = not $icon.visible
-			
-			
-		
 	print(lifePoints)
-	#print(alive)
-	#print(body)
-
-func dead():
-	$Attack.disabled=true
-	$CollisionShape2D.disabled=true
-	$icon.visible = not $icon.visible
-

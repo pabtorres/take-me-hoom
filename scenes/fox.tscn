@@ -1,0 +1,6 @@
+[gd_scene format=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Zorro" parent="." instance_placeholder="res://scenes/Enemy.tscn"]
+position = Vector2( -85.7604, 70.7465 )
