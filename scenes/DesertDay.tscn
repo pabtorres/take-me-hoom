@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://sprites/keyitems/chest_closed.png" type="Texture" id=1]
 [ext_resource path="res://sprites/backgrounds/Landscape 1.png" type="Texture" id=2]
@@ -9,9 +9,11 @@
 [ext_resource path="res://scripts/Tornado.gd" type="Script" id=7]
 [ext_resource path="res://scripts/CircleFade.gd" type="Script" id=8]
 [ext_resource path="res://scripts/Chest.gd" type="Script" id=9]
+[ext_resource path="res://scenes/DaySign.tscn" type="PackedScene" id=10]
 [ext_resource path="res://sprites/ennemies/owl.png" type="Texture" id=11]
+[ext_resource path="res://sprites/keyitems/sign_city_night.png" type="Texture" id=12]
 [ext_resource path="res://sprites/ennemies/Tornado_exe6.png" type="Texture" id=13]
-[ext_resource path="res://sprites/sign.png" type="Texture" id=14]
+[ext_resource path="res://scenes/DaySign2.tscn" type="PackedScene" id=14]
 [ext_resource path="res://sprites/tilemaps/desert_day_resized/12.png" type="Texture" id=15]
 [ext_resource path="res://sprites/tilemaps/desert_day_resized/15.png" type="Texture" id=16]
 [ext_resource path="res://sprites/tilemaps/desert_day_resized/10.png" type="Texture" id=17]
@@ -454,9 +456,6 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 20, 20 )
 
-[sub_resource type="RectangleShape2D" id=23]
-extents = Vector2( 24.0916, 27.7098 )
-
 [node name="Root" type="Node2D"]
 scale = Vector2( 3, 3 )
 script = ExtResource( 8 )
@@ -549,20 +548,19 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chest"]
 shape = SubResource( 22 )
 
-[node name="Sign" type="StaticBody2D" parent="."]
-position = Vector2( -403.619, 80.0757 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sign"]
-position = Vector2( 0.151871, 0 )
-shape = SubResource( 23 )
-
-[node name="Sprite" type="Sprite" parent="Sign"]
-position = Vector2( 0.0219727, -0.276978 )
-scale = Vector2( 0.0571569, 0.0571569 )
-texture = ExtResource( 14 )
+[node name="DaySign" parent="." instance=ExtResource( 10 )]
+position = Vector2( -399.349, 76.0427 )
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 139.747, 70.362 )
+
+[node name="NightSign2" type="Node2D" parent="."]
+position = Vector2( -128.018, 56.4011 )
+
+[node name="Sprite" type="Sprite" parent="NightSign2"]
+position = Vector2( 2.50891, -1.29678 )
+scale = Vector2( 0.12178, 0.12178 )
+texture = ExtResource( 12 )
+
+[node name="DaySign2" parent="." instance=ExtResource( 14 )]
+position = Vector2( -216.724, 60.4486 )

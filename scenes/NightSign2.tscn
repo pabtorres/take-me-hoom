@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://sprites/keyitems/sign_city_night.png" type="Texture" id=1]
+
+[node name="NightSign2" type="Node2D"]
+position = Vector2( -128.018, 56.4011 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 2.50891, -1.29678 )
+scale = Vector2( 0.12178, 0.12178 )
+texture = ExtResource( 1 )
