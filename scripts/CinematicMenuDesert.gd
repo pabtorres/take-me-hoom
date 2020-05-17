@@ -10,12 +10,7 @@ extends Node2D
 func _ready():
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
 func _on_Button_pressed():
 	get_tree().change_scene("res://scenes/DesertDay.tscn")
 	MusicManager.change_desert_day_music()
+	LevelManager.reset_life_points()
