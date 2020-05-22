@@ -14,6 +14,7 @@ offset = Vector2( -20, 90 )
 transform = Transform2D( 1, 0, 0, 1, -20, 90 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 material = SubResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0

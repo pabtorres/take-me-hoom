@@ -7,14 +7,14 @@ var hfriction = 60
 var life=1000
 
 # Restricciones de velocidad
-var hspeed = 350
-var vspeed = 600
-var max_dspeed = 480
-var gravity = 1000
+var hspeed = 350 / 3.0
+var vspeed = 600 / 3.0
+var max_dspeed = 480 / 3.0
+var gravity = 1000 / 3.0
 
 # Para poder tacklear
 var tackle = false
-var tackle_friction = 120
+var tackle_friction = 120 / 3.0
 
 # Para esperar animación de dormir
 var sleep_animation = false
@@ -39,11 +39,6 @@ var facing = -1
 func reverse(val):
 	return -val
 
-func set_attack(value: bool):
-	$Attack.disabled=!value
-	$Attack/Sprite.visible=not $Attack/Sprite.visible
-	
-	
 func _ready():
 	# Get life points
 	$CanvasLayer/ProgressBar.value=LevelManager.life_points
@@ -133,7 +128,16 @@ func _physics_process(delta):
 		if anim_player.current_animation != "OnAirBark":
 			anim_player.play("Jump")
 
-
-func _on_Area2D_area_entered(area):
+func take_damage():
 	LevelManager.life_points-=25
 	$CanvasLayer/ProgressBar.value=LevelManager.life_points
+
+
+func _on_Attack_body_entered(body: Node):
+	if body.is_in_group("Enemy"):
+		body.take_damage()
+
+
+func _on_Attack_area_entered(area):
+	if area.is_in_group("Enemy"):
+		area.take_damage()

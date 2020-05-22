@@ -16,19 +16,15 @@ func _ready():
 	lifePoints=50;
 	
 
-func set_attack(value: bool):
-	if alive==true:
-		$Area2D2/Attack.disabled=!value
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if time!=100 && $AnimationPlayer.current_animation != "Attack" && $AnimationPlayer.current_animation != "Die":
-		$AnimationPlayer.play("Idle")
-		time+=1
-	if time==100:
-		$AnimationPlayer.play("Attack")
-		time=0
+	if alive:
+		if time!=100 && $AnimationPlayer.current_animation != "Attack" && $AnimationPlayer.current_animation != "Die":
+			$AnimationPlayer.play("Idle")
+			time+=1
+		if time==100:
+			$AnimationPlayer.play("Attack")
+			time=0
 	 
 		
 		
@@ -39,9 +35,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 
 func dead():
-	$Area2D2/Attack.disabled=true
-	$Area2D/CollisionShape2D.disabled=true
-	$icon.visible = not $icon.visible
+	queue_free()
 
 
 
@@ -49,11 +43,17 @@ func dead():
 
 
 
-func _on_Area2D_body_entered(body):
+func take_damage():
 	if alive:
 		lifePoints-=10;
 		if lifePoints<=0:
 			alive=false
 			print("dead")
 			$AnimationPlayer.play("Die")
+			$Area2D2/Attack.disabled=true
 	print(lifePoints)
+
+
+func _on_Area2D2_body_entered(body: Node):
+	if body.is_in_group("Player"):
+		body.take_damage()
