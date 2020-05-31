@@ -27,6 +27,9 @@ var bullet = true
 var bullet_cooldown = 0.25
 var bullet_cooldown_counter = 0
 
+# Para poder dormir tiene que tener en True el boolean
+var can_sleep = false
+
 # Referencia gravedad
 export var velocity = Vector2.ZERO
 # Animation player of protagonist
@@ -70,7 +73,7 @@ func _physics_process(delta):
 			velocity.y = -vspeed
 		
 		
-		if Input.is_action_just_pressed("sleep") and !LevelManager.is_player_sleeping:
+		if Input.is_action_just_pressed("sleep") and !LevelManager.is_player_sleeping and can_sleep:
 			LevelManager.is_player_sleeping = true
 			#MusicManager.can_change_music = true
 			anim_player.play("Sleep")
@@ -141,3 +144,6 @@ func _on_Attack_body_entered(body: Node):
 func _on_Attack_area_entered(area):
 	if area.is_in_group("Enemy"):
 		area.take_damage()
+		
+func set_can_sleep(state: bool):
+	can_sleep = state
