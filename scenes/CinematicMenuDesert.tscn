@@ -18,10 +18,15 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="CanvasLayer"]
-margin_left = 878.317
-margin_top = 511.951
-margin_right = 991.317
-margin_bottom = 570.951
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -48.6168
+margin_top = -28.9114
+margin_right = 64.3832
+margin_bottom = 30.0886
+rect_scale = Vector2( 0.333, 0.333 )
 text = "Start Adventure"
 __meta__ = {
 "_edit_use_anchors_": false
