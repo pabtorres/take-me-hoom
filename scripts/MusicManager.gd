@@ -10,22 +10,12 @@ const tracks = [
 var can_change_music = false
 
 func _ready():
-	 # var rand_nb = Randi() % tracks.size()
 	 var audiostream = load("res://music/" + tracks[0])
 	 set_stream(audiostream)
 	 play()
 	
 func _process(delta):
-	if (LevelManager.is_player_sleeping and can_change_music):
-		var audiostream = load("res://music/" + tracks[1])
-		set_stream(audiostream)
-		play()
-		can_change_music = false
-	elif(!LevelManager.is_player_sleeping and can_change_music):
-		var audiostream = load("res://music/" + tracks[0])
-		set_stream(audiostream)
-		play()
-		can_change_music = false
+	pass
 
 func change_desert_day_music():
 	var audiostream = load("res://music/" + tracks[2])

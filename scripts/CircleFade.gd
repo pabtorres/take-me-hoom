@@ -13,8 +13,6 @@ onready var shader = $CanvasLayer/ColorRect
 func _ready():
 	shader.material.set("shader_param/radius", 2)
 	shader.material.set("shader_param/amount", 0)
-	print("hello")
-	print(self)
 
 
 

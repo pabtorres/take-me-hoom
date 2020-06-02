@@ -30,6 +30,18 @@ var bullet_cooldown_counter = 0
 # Para poder dormir tiene que tener en True el boolean
 var can_sleep = false
 
+# Power-ups - EXPERIMENTAL
+var double_jump = true
+var recently_jumped = false
+
+# Chequear caida libre
+var level_just_started = true
+var start_fall_clock = false
+var fall_start
+
+# Checkpoints
+var level_spawn_position
+
 # Referencia gravedad
 export var velocity = Vector2.ZERO
 # Animation player of protagonist
@@ -52,6 +64,7 @@ func _ready():
 	if LevelManager.player_position_night and LevelManager.is_player_sleeping:
 		position = LevelManager.player_position_night
 	anim_player.connect("animation_finished", self, "on_animation_finished")
+	level_spawn_position = LevelManager.level_spawn_position()
 	
 func on_animation_finished(anim_name: String):
 	if anim_name == "Sleep":
@@ -71,11 +84,11 @@ func _physics_process(delta):
 	if on_floor:
 		if Input.is_action_just_pressed("jump1"):
 			velocity.y = -vspeed
+			recently_jumped = true # To test double_jump
 		
 		
 		if Input.is_action_just_pressed("sleep") and !LevelManager.is_player_sleeping and can_sleep:
 			LevelManager.is_player_sleeping = true
-			#MusicManager.can_change_music = true
 			anim_player.play("Sleep")
 			LevelManager.player_position_day = self.position
 			set_physics_process(false)
@@ -84,7 +97,6 @@ func _physics_process(delta):
 	
 		if Input.is_action_just_pressed("awake") and LevelManager.is_player_sleeping:
 			LevelManager.is_player_sleeping = false
-			#MusicManager.can_change_music = true
 			anim_player.play("Sleep")
 			LevelManager.player_position_night = self.position
 			set_physics_process(false)
@@ -130,6 +142,31 @@ func _physics_process(delta):
 			anim_player.play("OnAirBark")
 		if anim_player.current_animation != "OnAirBark":
 			anim_player.play("Jump")
+	
+	if on_floor:
+		if level_just_started:
+			level_just_started = false
+		start_fall_clock = true
+	
+	# Testing double_jump power-up and free falling timeout
+	if not on_floor:
+		if Input.is_action_just_pressed("jump1") and double_jump and recently_jumped:
+			velocity.y = -vspeed
+			recently_jumped = false
+		if velocity.y > 0 and not level_just_started:
+			if start_fall_clock:
+				fall_start = OS.get_unix_time()
+				start_fall_clock = false
+			else:
+				if OS.get_unix_time() - fall_start > 4:
+					fall_start = -1
+					level_just_started = true
+					start_fall_clock = false
+					#get_tree().reload_current_scene()
+					self.position = level_spawn_position #current checkpoint
+					LevelManager.reset_life_points()
+		if velocity.y < 0:
+			start_fall_clock = true
 
 func take_damage():
 	LevelManager.life_points-=25
@@ -147,3 +184,6 @@ func _on_Attack_area_entered(area):
 		
 func set_can_sleep(state: bool):
 	can_sleep = state
+
+func set_spawn_position(position: Vector2):
+	level_spawn_position = position

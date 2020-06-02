@@ -57,6 +57,10 @@ pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="InGameMenuLayer" type="CanvasLayer" parent="."]
+offset = Vector2( 113, 67 )
+scale = Vector2( 0.333, 0.333 )
+transform = Transform2D( 0.333, 0, 0, 0.333, 113, 67 )
+follow_viewport_scale = 0.333
 
 [node name="InGameMenuBackground" type="Panel" parent="InGameMenuLayer"]
 modulate = Color( 1, 1, 1, 0.392157 )

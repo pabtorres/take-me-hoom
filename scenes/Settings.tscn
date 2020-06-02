@@ -23,6 +23,8 @@ font_data = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2( 0.333, 0.333 )
+transform = Transform2D( 0.333, 0, 0, 0.333, 0, 0 )
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 margin_right = 1024.0
