@@ -6,7 +6,7 @@
 [ext_resource path="res://scripts/CircleFade.gd" type="Script" id=4]
 [ext_resource path="res://scenes/CircleFader.tscn" type="PackedScene" id=5]
 [ext_resource path="res://sprites/backgrounds/Landscape 2.png" type="Texture" id=6]
-[ext_resource path="res://sprites/keyitems/key.png" type="Texture" id=7]
+[ext_resource path="res://sprites/keyitems/ticket.png" type="Texture" id=7]
 [ext_resource path="res://scripts/Key.gd" type="Script" id=8]
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=23]
 [ext_resource path="res://scenes/Owl.tscn" type="PackedScene" id=24]
@@ -183,7 +183,7 @@ points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 0/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=18]
-extents = Vector2( 3.40576, 13.6674 )
+extents = Vector2( 18.6519, 10.2173 )
 
 [node name="Root" type="Node2D"]
 script = ExtResource( 4 )
@@ -215,19 +215,19 @@ __meta__ = {
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 5 )]
 
-[node name="Key" type="Area2D" parent="."]
+[node name="Ticket" type="Area2D" parent="."]
 position = Vector2( 1331.48, 229.298 )
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Key"]
-position = Vector2( -0.719482, -0.719498 )
-scale = Vector2( 0.1, 0.1 )
+[node name="Sprite" type="Sprite" parent="Ticket"]
+position = Vector2( 0.0292969, 0.481445 )
+scale = Vector2( 0.06412, 0.06412 )
 texture = ExtResource( 7 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Key"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ticket"]
 shape = SubResource( 18 )
 
 [node name="Zorro" parent="." instance=ExtResource( 23 )]
