@@ -187,7 +187,7 @@ points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 18.6519, 10.2173 )
 
-[sub_resource type="RectangleShape2D" id=19]
+[sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 12.0211, 11.8938 )
 
 [node name="Root" type="Node2D"]
@@ -247,7 +247,7 @@ position = Vector2( 1044.87, 206.65 )
 [node name="InGameMenu" parent="." instance=ExtResource( 2 )]
 
 [node name="JumpPowerUp" type="Area2D" parent="."]
-position = Vector2( 1246.23, 264.319 )
+position = Vector2( 1246.25, 264.32 )
 script = ExtResource( 10 )
 
 [node name="DoubleJump" type="Sprite" parent="JumpPowerUp"]
@@ -256,5 +256,5 @@ scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpPowerUp"]
-shape = SubResource( 19 )
+shape = SubResource( 20 )
 [connection signal="body_entered" from="JumpPowerUp" to="JumpPowerUp" method="_on_JumpPowerUp_body_entered"]
