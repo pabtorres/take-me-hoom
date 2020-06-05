@@ -4,6 +4,8 @@ var player_position_day = null
 var player_position_night = null
 var is_player_sleeping = false
 
+export var enemy_must_be_instantiated=false
+
 # Keys
 var keys = 0
 

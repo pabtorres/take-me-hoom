@@ -9,6 +9,7 @@ export(NodePath) var player
 onready var shader = $CanvasLayer/ColorRect
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	shader.material.set("shader_param/radius", 2)
@@ -25,3 +26,4 @@ func _process(delta):
 		var radius_after = lerp(radius_before, 0.09, 0.005)
 		shader.material.set("shader_param/radius", radius_after)
 		shader.material.set("shader_param/amount", amount_after)
+		

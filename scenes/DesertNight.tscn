@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://scenes/NightSign.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/InGameMenu.tscn" type="PackedScene" id=2]
@@ -6,10 +6,7 @@
 [ext_resource path="res://scripts/CircleFade.gd" type="Script" id=4]
 [ext_resource path="res://scenes/CircleFader.tscn" type="PackedScene" id=5]
 [ext_resource path="res://sprites/backgrounds/Landscape 2.png" type="Texture" id=6]
-[ext_resource path="res://sprites/keyitems/ticket.png" type="Texture" id=7]
-[ext_resource path="res://scripts/Key.gd" type="Script" id=8]
-[ext_resource path="res://sprites/powerups/doublejump_200x200.png" type="Texture" id=9]
-[ext_resource path="res://scripts/PowerUps.gd" type="Script" id=10]
+[ext_resource path="res://scenes/Ticket.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=23]
 [ext_resource path="res://scenes/Owl.tscn" type="PackedScene" id=24]
 [ext_resource path="res://sprites/tilemaps/DesertTileset/tilesheet_night.png" type="Texture" id=25]
@@ -184,12 +181,6 @@ points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 } ]
 0/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=18]
-extents = Vector2( 18.6519, 10.2173 )
-
-[sub_resource type="RectangleShape2D" id=20]
-extents = Vector2( 12.0211, 11.8938 )
-
 [node name="Root" type="Node2D"]
 script = ExtResource( 4 )
 
@@ -220,20 +211,7 @@ __meta__ = {
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 5 )]
 
-[node name="Ticket" type="Area2D" parent="."]
-position = Vector2( 1331.48, 229.298 )
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Ticket"]
-position = Vector2( 0.0292969, 0.481445 )
-scale = Vector2( 0.06412, 0.06412 )
-texture = ExtResource( 7 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ticket"]
-shape = SubResource( 18 )
+[node name="Ticket" parent="." instance=ExtResource( 7 )]
 
 [node name="Zorro" parent="." instance=ExtResource( 23 )]
 position = Vector2( 586.459, 363.719 )
@@ -245,16 +223,3 @@ position = Vector2( 890.757, 251.172 )
 position = Vector2( 1044.87, 206.65 )
 
 [node name="InGameMenu" parent="." instance=ExtResource( 2 )]
-
-[node name="JumpPowerUp" type="Area2D" parent="."]
-position = Vector2( 1246.25, 264.32 )
-script = ExtResource( 10 )
-
-[node name="DoubleJump" type="Sprite" parent="JumpPowerUp"]
-position = Vector2( -0.250488, 2.50354 )
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 9 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpPowerUp"]
-shape = SubResource( 20 )
-[connection signal="body_entered" from="JumpPowerUp" to="JumpPowerUp" method="_on_JumpPowerUp_body_entered"]

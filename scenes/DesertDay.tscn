@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://scenes/Bus.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/backgrounds/Landscape 1.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/Owl.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scripts/Tornado.gd" type="Script" id=7]
 [ext_resource path="res://scripts/CircleFade.gd" type="Script" id=8]
+[ext_resource path="res://scripts/InstanciationZone.gd" type="Script" id=9]
 [ext_resource path="res://scenes/DaySign.tscn" type="PackedScene" id=10]
 [ext_resource path="res://sprites/keyitems/kennel.png" type="Texture" id=11]
 [ext_resource path="res://sprites/keyitems/sign_city_night.png" type="Texture" id=12]
@@ -233,10 +234,12 @@ position = Vector2( 2165.28, 158.983 )
 script = ExtResource( 15 )
 
 [node name="Sprite" type="Sprite" parent="Kennel"]
+position = Vector2( 1.97168, 0 )
 scale = Vector2( 0.156029, 0.119148 )
 texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kennel"]
+position = Vector2( 1.31445, -0.328644 )
 shape = SubResource( 17 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
@@ -267,6 +270,8 @@ frame = 3
 anims/Blow = SubResource( 19 )
 
 [node name="Bus" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2614, 22.0788 )
+z_index = -8
 
 [node name="DaySign" parent="." instance=ExtResource( 10 )]
 position = Vector2( -399.349, 76.0427 )
@@ -293,6 +298,10 @@ script = ExtResource( 17 )
 
 [node name="CheckpointCollisionZone" type="CollisionShape2D" parent="Checkpoint"]
 shape = SubResource( 20 )
+
+[node name="InstanciationZone" type="Node2D" parent="."]
+position = Vector2( 2258.76, 169.896 )
+script = ExtResource( 9 )
 [connection signal="body_entered" from="Kennel" to="Kennel" method="_on_Kennel_body_entered"]
 [connection signal="body_exited" from="Kennel" to="Kennel" method="_on_Kennel_body_exited"]
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]

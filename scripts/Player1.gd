@@ -42,6 +42,10 @@ var fall_start
 # Checkpoints
 var level_spawn_position
 
+# Timer for enemy creation when hero
+var timer=0
+const bullet_obj = preload("res://scenes/Enemy.tscn")
+
 # Referencia gravedad
 export var velocity = Vector2.ZERO
 # Animation player of protagonist
@@ -58,9 +62,12 @@ func _ready():
 	# Get life points
 	$CanvasLayer/ProgressBar.value=LevelManager.life_points
 	# When player is instanciated, it is not in dark mode
+	
 	LevelManager.dark_zone = false
 	if LevelManager.player_position_day and !LevelManager.is_player_sleeping:
 		position = LevelManager.player_position_day
+		
+		
 	if LevelManager.player_position_night and LevelManager.is_player_sleeping:
 		position = LevelManager.player_position_night
 	anim_player.connect("animation_finished", self, "on_animation_finished")
@@ -80,6 +87,9 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2.UP, true)
 	
 	var on_floor = is_on_floor()
+	if LevelManager.is_player_sleeping:
+		timer+=delta
+	#print(timer)
 	
 	if on_floor:
 		if Input.is_action_just_pressed("jump1"):
@@ -91,6 +101,7 @@ func _physics_process(delta):
 			LevelManager.is_player_sleeping = true
 			anim_player.play("Sleep")
 			LevelManager.player_position_day = self.position
+			LevelManager.enemy_must_be_instantiated=false
 			set_physics_process(false)
 			return
 		
@@ -98,6 +109,8 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("awake") and LevelManager.is_player_sleeping:
 			LevelManager.is_player_sleeping = false
 			anim_player.play("Sleep")
+			if timer>30:
+				LevelManager.enemy_must_be_instantiated=true
 			LevelManager.player_position_night = self.position
 			set_physics_process(false)
 			return
