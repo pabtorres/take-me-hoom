@@ -200,7 +200,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4 ]
 }
 
-[sub_resource type="RectangleShape2D" id=21]
+[sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 12.2086, 151.991 )
 
 [node name="Root" type="Node2D"]
@@ -292,7 +292,7 @@ position = Vector2( 600.61, 16.9403 )
 script = ExtResource( 17 )
 
 [node name="CheckpointCollisionZone" type="CollisionShape2D" parent="Checkpoint"]
-shape = SubResource( 21 )
+shape = SubResource( 20 )
 [connection signal="body_entered" from="Kennel" to="Kennel" method="_on_Kennel_body_entered"]
 [connection signal="body_exited" from="Kennel" to="Kennel" method="_on_Kennel_body_exited"]
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]

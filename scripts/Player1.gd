@@ -31,7 +31,7 @@ var bullet_cooldown_counter = 0
 var can_sleep = false
 
 # Power-ups - EXPERIMENTAL
-var double_jump = true
+#var double_jump = false
 var recently_jumped = false
 
 # Chequear caida libre
@@ -150,7 +150,7 @@ func _physics_process(delta):
 	
 	# Testing double_jump power-up and free falling timeout
 	if not on_floor:
-		if Input.is_action_just_pressed("jump1") and double_jump and recently_jumped:
+		if Input.is_action_just_pressed("jump1") and Global.player_powerups["DoubleJump"] and recently_jumped:
 			velocity.y = -vspeed
 			recently_jumped = false
 		if velocity.y > 0 and not level_just_started:
@@ -187,3 +187,8 @@ func set_can_sleep(state: bool):
 
 func set_spawn_position(position: Vector2):
 	level_spawn_position = position
+
+"""
+func set_doublejump(state: bool):
+	double_jump = state
+"""
