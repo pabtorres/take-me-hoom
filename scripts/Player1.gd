@@ -79,6 +79,8 @@ func on_animation_finished(anim_name: String):
 			LevelManager.turn_to_night()
 		else:
 			LevelManager.turn_to_day()
+	if anim_name == "Death":
+		print("Te moriste :'(")
 	
 func _physics_process(delta):
 
@@ -184,6 +186,9 @@ func _physics_process(delta):
 func take_damage():
 	LevelManager.life_points-=25
 	$CanvasLayer/ProgressBar.value=LevelManager.life_points
+	if LevelManager.life_points <= 0:
+		anim_player.play("Death")
+		set_physics_process(false)
 
 
 func _on_Attack_body_entered(body: Node):
