@@ -243,7 +243,7 @@ position = Vector2( 1.31445, -0.328644 )
 shape = SubResource( 17 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2080.6, 158.983 )
+position = Vector2( -300, 50 )
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 5 )]
 
