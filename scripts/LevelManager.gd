@@ -19,7 +19,7 @@ var dark_zone = false
 var current_level = 0
 
 # List with all the
-var spawn_positions = [Vector2(2080.6, 158.9), Vector2(39.06, 105)]
+var spawn_positions = [Vector2(-300, 50), Vector2(39.06, 105)]
 
 func exit_to_menu():
 	get_tree().change_scene("res://scenes/Menu.tscn")
