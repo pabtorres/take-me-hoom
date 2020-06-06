@@ -111,7 +111,7 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("awake") and LevelManager.is_player_sleeping:
 			LevelManager.is_player_sleeping = false
 			anim_player.play("Sleep")
-			if timer>30:
+			if timer>10:
 				LevelManager.enemy_must_be_instantiated=true
 			LevelManager.player_position_night = self.position
 			set_physics_process(false)

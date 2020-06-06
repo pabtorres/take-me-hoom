@@ -34,6 +34,9 @@ func turn_to_day():
 	get_tree().change_scene("res://scenes/DesertDay.tscn")
 	current_level = 0
 	MusicManager.change_desert_day_music()
+	
+func change_level():
+	print("changing level")
 
 func reset_life_points():
 	life_points = 1000

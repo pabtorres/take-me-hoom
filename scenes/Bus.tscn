@@ -1,17 +1,33 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/Chest.gd" type="Script" id=1]
 [ext_resource path="res://sprites/keyitems/bus.png" type="Texture" id=2]
+[ext_resource path="res://sprites/keyitems/smoke.png" type="Texture" id=3]
+[ext_resource path="res://scripts/Smoke.gd" type="Script" id=4]
 
-[sub_resource type="RectangleShape2D" id=20]
-extents = Vector2( 20, 20 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 99.2961, 20 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "blow"
+length = 0.6
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
 
 [node name="Bus" type="Area2D"]
-position = Vector2( 2612.36, 21.4216 )
+position = Vector2( 2608.36, 24.9174 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="ChestSprite" type="Sprite" parent="."]
 position = Vector2( 9.4082, -0.765976 )
@@ -19,4 +35,19 @@ scale = Vector2( 0.170702, 0.170702 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 20 )
+shape = SubResource( 1 )
+
+[node name="Smoke" type="Node2D" parent="."]
+position = Vector2( -125.561, -49.9706 )
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Smoke"]
+visible = false
+position = Vector2( -5.49121, -41.916 )
+scale = Vector2( 0.172086, 0.172086 )
+texture = ExtResource( 3 )
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Smoke"]
+anims/blow = SubResource( 2 )
+[connection signal="animation_finished" from="Smoke/AnimationPlayer" to="Smoke" method="_on_AnimationPlayer_animation_finished"]

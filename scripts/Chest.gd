@@ -11,4 +11,6 @@ func body_entered(body):
 		if (LevelManager.keys>0):
 			# https://godotengine.org/qa/16683/answered-how-to-change-the-texture-of-a-sprite
 			LevelManager.keys -= 1
-			chest_sprite.set_texture(open_chest_tex)
+			$Smoke/Sprite.visible=!$Smoke/Sprite.visible
+			$Smoke/AnimationPlayer.play("blow")
+			
