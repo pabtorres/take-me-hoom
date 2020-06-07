@@ -40,7 +40,7 @@ var start_fall_clock = false
 var fall_start
 
 # Checkpoints
-var level_spawn_position
+#var level_spawn_position
 
 # Timer for enemy creation when hero
 var timer=0
@@ -71,7 +71,7 @@ func _ready():
 	if LevelManager.player_position_night and LevelManager.is_player_sleeping:
 		position = LevelManager.player_position_night
 	anim_player.connect("animation_finished", self, "on_animation_finished")
-	level_spawn_position = LevelManager.level_spawn_position()
+	#level_spawn_position = LevelManager.level_spawn_position()
 	
 func on_animation_finished(anim_name: String):
 	if anim_name == "Sleep":
@@ -172,14 +172,13 @@ func _physics_process(delta):
 				fall_start = OS.get_unix_time()
 				start_fall_clock = false
 			else:
-				if OS.get_unix_time() - fall_start > 4:
+				if OS.get_unix_time() - fall_start > 3:
 					fall_start = -1
 					level_just_started = true
 					start_fall_clock = false
-					#get_tree().reload_current_scene()
-					self.position = level_spawn_position #current checkpoint
-					update_progress_bar(LevelManager.get_max_life_points())
-					LevelManager.reset_life_points()
+					self.position = LevelManager.level_spawn_position() #current checkpoint
+					#update_progress_bar(LevelManager.get_max_life_points())
+					#LevelManager.reset_life_points()
 		if velocity.y < 0:
 			start_fall_clock = true
 
@@ -204,7 +203,7 @@ func set_can_sleep(state: bool):
 	can_sleep = state
 
 func set_spawn_position(position: Vector2):
-	level_spawn_position = position
+	LevelManager.override_spawn_position(position)
 
 func update_progress_bar(number: int):
 	$CanvasLayer/ProgressBar.value = number
