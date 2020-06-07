@@ -3,7 +3,6 @@ extends Area2D
 
 # Declare member variables here. Examples:
 # var a = 2
-var v0 = -0.1
 var bars = 0
 var speed = 15
 

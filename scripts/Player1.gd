@@ -60,7 +60,7 @@ func reverse(val):
 
 func _ready():
 	# Get life points
-	$CanvasLayer/ProgressBar.value=LevelManager.life_points
+	update_progress_bar(LevelManager.life_points)
 	# When player is instanciated, it is not in dark mode
 	
 	LevelManager.dark_zone = false
@@ -83,7 +83,7 @@ func on_animation_finished(anim_name: String):
 		print("Te moriste :'(")
 	
 func _physics_process(delta):
-
+	
 	# Gravity
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP, true)
@@ -91,7 +91,6 @@ func _physics_process(delta):
 	var on_floor = is_on_floor()
 	if LevelManager.is_player_sleeping:
 		timer+=delta
-	#print(timer)
 	
 	if on_floor:
 		if Input.is_action_just_pressed("jump1"):
@@ -179,13 +178,14 @@ func _physics_process(delta):
 					start_fall_clock = false
 					#get_tree().reload_current_scene()
 					self.position = level_spawn_position #current checkpoint
+					update_progress_bar(LevelManager.get_max_life_points())
 					LevelManager.reset_life_points()
 		if velocity.y < 0:
 			start_fall_clock = true
 
 func take_damage():
 	LevelManager.life_points-=25
-	$CanvasLayer/ProgressBar.value=LevelManager.life_points
+	update_progress_bar(LevelManager.life_points)
 	if LevelManager.life_points <= 0:
 		anim_player.play("Death")
 		set_physics_process(false)
@@ -206,7 +206,5 @@ func set_can_sleep(state: bool):
 func set_spawn_position(position: Vector2):
 	level_spawn_position = position
 
-"""
-func set_doublejump(state: bool):
-	double_jump = state
-"""
+func update_progress_bar(number: int):
+	$CanvasLayer/ProgressBar.value = number

@@ -11,6 +11,9 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://scenes/DesertDay.tscn")
-	MusicManager.change_desert_day_music()
+	#LevelManager.turn_to_day()
+	#get_tree().change_scene("res://scenes/DesertDay.tscn")
+	#MusicManager.change_desert_day_music()
+	LevelManager.change_level_to_desert()
+	#MusicManager.change_music(1)
 	LevelManager.reset_life_points()
