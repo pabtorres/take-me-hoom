@@ -34,21 +34,15 @@ func _ready():
 func exit_to_menu():
 	current_level = 0
 	get_tree().change_scene(level_dict_scenes[current_level])
+	reset_spawn_positions()
 	MusicManager.change_music(current_level)
-	#MusicManager.change_menu_music()
 
 func turn_to_night():
-	#get_tree().change_scene("res://scenes/DesertNight.tscn")
-	#current_level = 2
-	#MusicManager.change_desert_night_music()
 	current_level += 1
 	get_tree().change_scene(level_dict_scenes[current_level])
 	MusicManager.change_music(current_level)
 	
 func turn_to_day():
-	#get_tree().change_scene("res://scenes/DesertDay.tscn")
-	#current_level = 1
-	#MusicManager.change_desert_day_music()
 	current_level -= 1
 	get_tree().change_scene(level_dict_scenes[current_level])
 	MusicManager.change_music(current_level)
@@ -60,11 +54,9 @@ func change_level_to_desert():
 	MusicManager.change_music(current_level)
 
 func change_level_to_city():
-	#get_tree().change_scene("res://scenes/CityDay.tscn")
 	current_level = 3
 	reset_player_positions()
 	get_tree().change_scene(level_dict_scenes[current_level])
-	#MusicManager.change_city_day_music()
 	MusicManager.change_music(current_level)
 
 func reset_life_points():
@@ -82,3 +74,9 @@ func set_max_life_points(new_max: int):
 func reset_player_positions():
 	player_position_day = null
 	player_position_night = null
+
+func reset_spawn_positions():
+	spawn_positions = [Vector2(-300, 50), Vector2(39.06, 105), Vector2(-534, -43), Vector2(0, 0)]
+
+func override_spawn_position(checkpoint: Vector2):
+	spawn_positions[current_level-1] = checkpoint
