@@ -101,14 +101,16 @@ func _physics_process(delta):
 			recently_jumped = true # To test double_jump
 		
 		if Input.is_action_just_pressed("small") && isBig && Global.player_powerups["Small"]:
-			var scale = Vector2(0.5, -0.5)
-			self.set_scale(scale)
+			self.set_scale(Vector2(0.5, -0.5))
+			if facing==-1:
+				self.set_scale(Vector2(0.5,0.5))
 			isSmall=true
 			isBig=false
 		
 		if Input.is_action_just_pressed("big") && isSmall && Global.player_powerups["Small"]:
-			var scale = Vector2(1, -1)
-			self.set_scale(scale)
+			self.set_scale(Vector2(1, -1))
+			if facing==-1:
+				self.set_scale(Vector2(1,1))
 			isBig=true
 			isSmall=false
 		
@@ -150,6 +152,7 @@ func _physics_process(delta):
 		if facing != new_facing:
 			scale.x = scale.x*(-1)
 			facing = new_facing
+
 		
 
 	# Animation

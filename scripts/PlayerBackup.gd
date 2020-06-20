@@ -96,6 +96,7 @@ func _physics_process(delta):
 		if Input.is_action_pressed("right1") && !Input.is_action_pressed("left1") && $AnimationPlayer.current_animation != "Bark" && $AnimationPlayer.current_animation != "OnAirBark":
 			velocity.x = max_hspeed
 			if direction=="left":
+				print("changed")
 				$Attack.position.x *=-1
 				$Attack/Sprite.flip_h=true
 				$Attack/Sprite.position.x+=20
