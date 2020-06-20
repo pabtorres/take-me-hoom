@@ -294,7 +294,7 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 18 )
 
 [node name="InstanciationZone" type="Node2D" parent="."]
-position = Vector2( 2750, 35 )
+position = Vector2( 2884.48, 39.6258 )
 scale = Vector2( -1, 1 )
 script = ExtResource( 9 )
 

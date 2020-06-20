@@ -34,6 +34,9 @@ var can_sleep = false
 #var double_jump = false
 var recently_jumped = false
 
+var isBig= true
+var isSmall=false
+
 # Chequear caida libre
 var level_just_started = true
 var start_fall_clock = false
@@ -97,6 +100,17 @@ func _physics_process(delta):
 			velocity.y = -vspeed
 			recently_jumped = true # To test double_jump
 		
+		if Input.is_action_just_pressed("small") && isBig && Global.player_powerups["Small"]:
+			var scale = Vector2(0.5, -0.5)
+			self.set_scale(scale)
+			isSmall=true
+			isBig=false
+		
+		if Input.is_action_just_pressed("big") && isSmall && Global.player_powerups["Small"]:
+			var scale = Vector2(1, -1)
+			self.set_scale(scale)
+			isBig=true
+			isSmall=false
 		
 		if Input.is_action_just_pressed("sleep") and !LevelManager.is_player_sleeping and can_sleep:
 			LevelManager.is_player_sleeping = true
@@ -134,7 +148,7 @@ func _physics_process(delta):
 	if target_vel != 0:
 		var new_facing = sign(target_vel)
 		if facing != new_facing:
-			scale.x = -1
+			scale.x = scale.x*(-1)
 			facing = new_facing
 		
 
