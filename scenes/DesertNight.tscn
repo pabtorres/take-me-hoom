@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://scenes/NightSign.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/InGameMenu.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/CircleFader.tscn" type="PackedScene" id=5]
 [ext_resource path="res://sprites/backgrounds/Landscape 2.png" type="Texture" id=6]
 [ext_resource path="res://scenes/Ticket.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/NightMode.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/JumpPowerUp.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/fox.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=23]
@@ -241,3 +242,5 @@ position = Vector2( 2522.8, 76.553 )
 
 [node name="Fox3" parent="." instance=ExtResource( 10 )]
 position = Vector2( 2214.7, 75.603 )
+
+[node name="NightMode" parent="." instance=ExtResource( 8 )]
