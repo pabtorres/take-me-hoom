@@ -43,3 +43,4 @@ frame = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 2 )
 [connection signal="area_entered" from="." to="." method="_on_Puma_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_Puma_body_entered"]

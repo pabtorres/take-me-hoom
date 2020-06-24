@@ -42,3 +42,8 @@ func _on_Puma_area_entered(area):
 			$CollisionShape2D.disabled=true
 			$Sprite.visible = not $Sprite.visible
 	print(lifePoints)
+
+
+func _on_Puma_body_entered(body):
+	if body.is_in_group("Player"):
+		body.take_damage()
