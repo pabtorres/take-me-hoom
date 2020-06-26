@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://scenes/Bus.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/backgrounds/Landscape 1.png" type="Texture" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://scenes/InGameMenu.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scripts/Checkpoint.gd" type="Script" id=17]
 [ext_resource path="res://sprites/powerups/checkpoint_200x200.png" type="Texture" id=18]
+[ext_resource path="res://sprites/keyboard keys/D-Key.png" type="Texture" id=19]
 [ext_resource path="res://sprites/tilemaps/DesertTileset/tilesheet.png" type="Texture" id=31]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -242,6 +243,12 @@ texture = ExtResource( 11 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kennel"]
 position = Vector2( 1.31445, -0.328644 )
 shape = SubResource( 17 )
+
+[node name="Press_D" type="Sprite" parent="Kennel"]
+position = Vector2( 35.9243, -23.3508 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 19 )
+hframes = 2
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -300, 50 )

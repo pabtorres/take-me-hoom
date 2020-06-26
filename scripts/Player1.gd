@@ -62,8 +62,6 @@ func reverse(val):
 	return -val
 
 func _ready():
-	# Keys invisible
-	$Key_D.visible = false
 	# Get life points
 	update_progress_bar(LevelManager.life_points)
 	# When player is instanciated, it is not in dark mode
@@ -220,9 +218,6 @@ func _on_Attack_area_entered(area):
 		
 func set_can_sleep(state: bool):
 	can_sleep = state
-	
-func set_sleep_key(state: bool):
-	$Key_D.visible = state
 
 func set_spawn_position(position: Vector2):
 	LevelManager.override_spawn_position(position)
