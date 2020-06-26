@@ -22,8 +22,10 @@ func _on_Kennel_area_entered(area):
 
 func _on_Kennel_body_entered(body):
 	if body.is_in_group("Player"):
+		body.set_sleep_key(true)
 		body.set_can_sleep(true)
 
 func _on_Kennel_body_exited(body):
 	if body.is_in_group("Player"):
+		body.set_sleep_key(false)
 		body.set_can_sleep(false)
