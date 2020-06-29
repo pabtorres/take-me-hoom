@@ -8,7 +8,7 @@ func _ready():
 
 func body_entered(body):
 	if body.get_name().begins_with("Player"):
-		if (LevelManager.keys>0):
+		if Global.keys["bus"]==true: 
 			# https://godotengine.org/qa/16683/answered-how-to-change-the-texture-of-a-sprite
 			LevelManager.keys -= 1
 			$Smoke/Sprite.visible=!$Smoke/Sprite.visible

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://scenes/Bus.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/backgrounds/Landscape 1.png" type="Texture" id=2]
@@ -13,12 +13,14 @@
 [ext_resource path="res://sprites/keyitems/kennel.png" type="Texture" id=11]
 [ext_resource path="res://scenes/fox.tscn" type="PackedScene" id=12]
 [ext_resource path="res://sprites/ennemies/Tornado_exe6.png" type="Texture" id=13]
-[ext_resource path="res://scenes/SmallPowerUp.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/Drain.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scripts/Kennel.gd" type="Script" id=15]
 [ext_resource path="res://scenes/InGameMenu.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scripts/Checkpoint.gd" type="Script" id=17]
 [ext_resource path="res://sprites/powerups/checkpoint_200x200.png" type="Texture" id=18]
 [ext_resource path="res://sprites/keyboard keys/D-Key.png" type="Texture" id=19]
+[ext_resource path="res://scripts/SewerKey.gd" type="Script" id=20]
+[ext_resource path="res://sprites/keyitems/key.png" type="Texture" id=21]
 [ext_resource path="res://sprites/tilemaps/DesertTileset/tilesheet.png" type="Texture" id=31]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -206,6 +208,10 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 6.64008, 10.3568 )
 
+[sub_resource type="CapsuleShape2D" id=21]
+radius = 7.63979
+height = 4.39445
+
 [node name="Root" type="Node2D"]
 script = ExtResource( 8 )
 
@@ -306,9 +312,6 @@ position = Vector2( 2884.48, 39.6258 )
 scale = Vector2( -1, 1 )
 script = ExtResource( 9 )
 
-[node name="SmallPowerUp" parent="InstanciationZone" instance=ExtResource( 14 )]
-position = Vector2( 3076.85, 21.5178 )
-
 [node name="Owl" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2500, -20 )
 scale = Vector2( -1, 1 )
@@ -324,6 +327,24 @@ position = Vector2( 3550, -150 )
 
 [node name="Fox2" parent="." instance=ExtResource( 12 )]
 position = Vector2( 3330, 40 )
+
+[node name="Drain" parent="." instance=ExtResource( 14 )]
+
+[node name="SewerKey" type="Area2D" parent="."]
+position = Vector2( -140.222, 70.5522 )
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="SewerKey"]
+position = Vector2( 2.4845, 0.828186 )
+scale = Vector2( 0.0890523, 0.0890523 )
+texture = ExtResource( 21 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SewerKey"]
+position = Vector2( 2.59885, 1.51599 )
+shape = SubResource( 21 )
 [connection signal="body_entered" from="Kennel" to="Kennel" method="_on_Kennel_body_entered"]
 [connection signal="body_exited" from="Kennel" to="Kennel" method="_on_Kennel_body_exited"]
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]
