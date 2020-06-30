@@ -329,6 +329,7 @@ position = Vector2( 3550, -150 )
 position = Vector2( 3330, 40 )
 
 [node name="Drain" parent="." instance=ExtResource( 14 )]
+position = Vector2( 408.933, 110.126 )
 
 [node name="SewerKey" type="Area2D" parent="."]
 position = Vector2( -140.222, 70.5522 )

@@ -11,4 +11,10 @@ func _ready():
 func _on_Area2D_body_entered(body):
 	print(Global.keys["sewer"])
 	if Global.keys["sewer"]==true:
+		$AnimationPlayer.play("Open")
+		
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name=="Open":
 		queue_free()
