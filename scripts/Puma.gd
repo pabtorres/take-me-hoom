@@ -1,4 +1,4 @@
-extends Area2D
+extends KinematicBody2D
 
 var dir="right"
 var speed = 100

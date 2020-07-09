@@ -142,13 +142,14 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 32, 16 )
+extents = Vector2( 32, 18.8144 )
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 17.7447, 20.0426 )
 
 [node name="Player1" type="KinematicBody2D"]
 position = Vector2( -289.567, 96.7795 )
+scale = Vector2( 2, 2 )
 collision_mask = 13
 script = ExtResource( 3 )
 
@@ -189,8 +190,7 @@ anims/Run = SubResource( 8 )
 anims/Sleep = SubResource( 9 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 4.548, 5.48001 )
-scale = Vector2( 0.314188, 0.314188 )
+position = Vector2( 23.1615, -7.59848 )
 texture = ExtResource( 2 )
 vframes = 12
 hframes = 13
@@ -199,7 +199,7 @@ frame = 5
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 9.56699, 15.2205 )
+position = Vector2( 9.56699, 10.6715 )
 shape = SubResource( 10 )
 
 [node name="ProgressBar" type="ProgressBar" parent="."]

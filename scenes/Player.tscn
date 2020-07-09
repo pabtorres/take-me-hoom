@@ -255,7 +255,7 @@ tracks/4/keys = {
 "values": [ false, true, false ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 length = 0.7
 loop = true
 tracks/0/type = "value"
@@ -295,7 +295,7 @@ tracks/2/keys = {
 "values": [ 0.0, -30.0, -15.0 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -334,10 +334,10 @@ tracks/2/keys = {
 "values": [ 0.0, -90.0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 17.7447, 20.0426 )
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 17.7447, 15.7432 )
 
-[sub_resource type="StyleBoxFlat" id=11]
+[sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 1, 0.419608, 0.592157, 1 )
 border_width_left = 4
 border_width_top = 4
@@ -349,7 +349,7 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxFlat" id=12]
+[sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 0.258824, 0.141176, 0.270588, 1 )
 border_width_left = 4
 border_width_top = 4
@@ -401,8 +401,8 @@ anims/Death = SubResource( 3 )
 anims/Idle = SubResource( 4 )
 anims/Jump = SubResource( 5 )
 anims/OnAirBark = SubResource( 6 )
-anims/Run = SubResource( 8 )
-anims/Sleep = SubResource( 9 )
+anims/Run = SubResource( 7 )
+anims/Sleep = SubResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -5.40934, 5.48001 )
@@ -417,22 +417,24 @@ position = Vector2( -8, 7 )
 texture = ExtResource( 6 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 11.142 )
+position = Vector2( 0, 16.8308 )
 z_as_relative = false
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 
 [node name="CanvasLayer2" parent="." instance=ExtResource( 4 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+anchor_left = -0.000743642
+anchor_right = -0.000743731
 margin_left = 17.697
-margin_top = 12.57
+margin_top = 13.4549
 margin_right = 268.697
-margin_bottom = 50.57
+margin_bottom = 51.4549
 rect_scale = Vector2( 0.333, 0.333 )
-custom_styles/fg = SubResource( 11 )
-custom_styles/bg = SubResource( 12 )
+custom_styles/fg = SubResource( 10 )
+custom_styles/bg = SubResource( 11 )
 max_value = 1000.0
 step = 10.0
 value = 1000.0

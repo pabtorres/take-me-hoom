@@ -4,7 +4,7 @@
 [ext_resource path="res://scripts/Puma.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 71.3721, 30.2754 )
+extents = Vector2( 113.499, 42.7387 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Idle"
@@ -29,12 +29,12 @@ position = Vector2( -214.951, 58.3077 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.606079, 12.5257 )
+position = Vector2( 43.3964, 3.77127 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -2.41987, 12.6504 )
-scale = Vector2( 0.16275, 0.167711 )
+position = Vector2( 40.0013, 5.739 )
+scale = Vector2( 0.265154, 0.273236 )
 texture = ExtResource( 1 )
 vframes = 4
 hframes = 2

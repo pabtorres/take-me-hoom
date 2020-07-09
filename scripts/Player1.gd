@@ -64,6 +64,7 @@ func reverse(val):
 func _ready():
 	# Get life points
 	update_progress_bar(LevelManager.life_points)
+	print(self.scale)
 	# When player is instanciated, it is not in dark mode
 	
 	LevelManager.dark_zone = false
@@ -80,6 +81,7 @@ func on_animation_finished(anim_name: String):
 	if anim_name == "Sleep":
 		if LevelManager.is_player_sleeping == true:
 			LevelManager.turn_to_night()
+			print("night")
 		else:
 			LevelManager.turn_to_day()
 	if anim_name == "Death":
@@ -106,6 +108,7 @@ func _physics_process(delta):
 				self.set_scale(Vector2(0.5,0.5))
 			isSmall=true
 			isBig=false
+			print(self.scale)
 		
 		if Input.is_action_just_pressed("big") && isSmall && Global.player_powerups["Small"]:
 			self.set_scale(Vector2(1, -1))
@@ -113,6 +116,7 @@ func _physics_process(delta):
 				self.set_scale(Vector2(1,1))
 			isBig=true
 			isSmall=false
+			print(self.scale)
 		
 		if Input.is_action_just_pressed("sleep") and !LevelManager.is_player_sleeping and can_sleep:
 			LevelManager.is_player_sleeping = true

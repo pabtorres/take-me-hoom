@@ -643,9 +643,6 @@ position = Vector2( 2208.05, 42.461 )
 position = Vector2( -385.97, -60.5664 )
 
 [node name="Kennel2" parent="." instance=ExtResource( 32 )]
-position = Vector2( 2355.48, -4.50676 )
+position = Vector2( -281.505, -33.4936 )
 z_index = -1
-
-[node name="DaySign2" parent="Kennel2" instance=ExtResource( 27 )]
-position = Vector2( 1181.16, 133.655 )
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]
