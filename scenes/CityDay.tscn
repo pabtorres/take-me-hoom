@@ -27,7 +27,6 @@
 [ext_resource path="res://scripts/CircleFade.gd" type="Script" id=25]
 [ext_resource path="res://scenes/CircleFader.tscn" type="PackedScene" id=26]
 [ext_resource path="res://scenes/DaySign2.tscn" type="PackedScene" id=27]
-[ext_resource path="res://scenes/Puma.tscn" type="PackedScene" id=28]
 [ext_resource path="res://scenes/Drone.tscn" type="PackedScene" id=29]
 [ext_resource path="res://scripts/Checkpoint.gd" type="Script" id=30]
 [ext_resource path="res://sprites/powerups/checkpoint_200x200.png" type="Texture" id=31]
@@ -36,6 +35,7 @@
 [ext_resource path="res://scenes/JumpPowerUp.tscn" type="PackedScene" id=34]
 [ext_resource path="res://scenes/Drain.tscn" type="PackedScene" id=35]
 [ext_resource path="res://scenes/SmallPowerUp.tscn" type="PackedScene" id=36]
+[ext_resource path="res://scenes/puma.tscn" type="PackedScene" id=37]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
@@ -607,10 +607,6 @@ scale = Vector2( 1, 1.05 )
 [node name="Drone" parent="." instance=ExtResource( 29 )]
 position = Vector2( -61, -34 )
 
-[node name="Puma" parent="." instance=ExtResource( 28 )]
-position = Vector2( 474.049, -28.6923 )
-scale = Vector2( -0.7, 0.7 )
-
 [node name="Checkpoint" type="Area2D" parent="."]
 position = Vector2( 86, -45 )
 script = ExtResource( 30 )
@@ -646,6 +642,9 @@ position = Vector2( -385.97, -60.5664 )
 position = Vector2( 2355.48, -4.50676 )
 z_index = -1
 
-[node name="DaySign2" parent="Kennel2" instance=ExtResource( 27 )]
-position = Vector2( 1181.16, 133.655 )
+[node name="DaySign4" parent="." instance=ExtResource( 27 )]
+position = Vector2( 3536.64, 129.149 )
+
+[node name="Puma" parent="." instance=ExtResource( 37 )]
+position = Vector2( 342.695, -38.3689 )
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]

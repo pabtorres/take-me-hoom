@@ -1,16 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://sprites/ennemies/puma.png" type="Texture" id=1]
-[ext_resource path="res://scripts/Puma.gd" type="Script" id=2]
+[ext_resource path="res://scripts/puma.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 113.499, 42.7387 )
+extents = Vector2( 25.4874, 12.4633 )
 
 [sub_resource type="Animation" id=2]
-resource_name = "Idle"
-length = 0.9
-loop = true
-step = 0.03
+length = 1.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -18,29 +15,94 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.7, 0.8 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 1, 2, 3, 6, 4, 7 ]
+"values": [ 49, 48, 30, 31, 30, 21 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Area2D2/AttackLeft:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
 }
 
-[node name="Puma" type="Area2D"]
-position = Vector2( -214.951, 58.3077 )
+[sub_resource type="Animation" id=3]
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 39, 43 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.9
+loop = true
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 11.9062, 23.9581 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 10.5003, 25.7081 )
+
+[node name="Puma" type="KinematicBody2D" groups=[
+"Enemy",
+]]
+position = Vector2( 21.6784, 63.2528 )
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 43.3964, 3.77127 )
-shape = SubResource( 1 )
-
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 40.0013, 5.739 )
-scale = Vector2( 0.265154, 0.273236 )
+position = Vector2( -4.28423, 11.5282 )
+scale = Vector2( 0.181313, 0.190984 )
 texture = ExtResource( 1 )
 vframes = 4
 hframes = 2
-frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.33394, 2.44443 )
+scale = Vector2( 2.31595, 1.81996 )
+shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Idle = SubResource( 2 )
-[connection signal="area_entered" from="." to="." method="_on_Puma_area_entered"]
-[connection signal="body_entered" from="." to="." method="_on_Puma_body_entered"]
+anims/Attack = SubResource( 2 )
+anims/Die = SubResource( 3 )
+anims/Idle = SubResource( 4 )
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="AttackLeft" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2( -83.445, -4.91627 )
+shape = SubResource( 5 )
+disabled = true
+
+[node name="AttackRight" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2( 76.4205, -3.10523 )
+shape = SubResource( 6 )
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_Area2D2_body_entered"]
