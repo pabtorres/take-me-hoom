@@ -20,7 +20,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 0 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "die"
 length = 0.11
 loop = true
@@ -38,7 +38,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 4 ]
 }
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 27.8134, 18.8754 )
 
 [node name="Drone" type="Area2D"]
@@ -53,9 +53,9 @@ frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 1 )
-anims/die = SubResource( 3 )
+anims/die = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.909706, 3.59853 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 [connection signal="body_entered" from="." to="." method="_on_Drone_body_entered"]
