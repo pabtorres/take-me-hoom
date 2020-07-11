@@ -203,8 +203,8 @@ func _physics_process(delta):
 		if velocity.y < 0:
 			start_fall_clock = true
 
-func take_damage():
-	LevelManager.life_points-=25
+func take_damage(damage):
+	LevelManager.life_points-=damage
 	update_progress_bar(LevelManager.life_points)
 	if LevelManager.life_points <= 0:
 		anim_player.play("Death")

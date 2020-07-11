@@ -59,4 +59,4 @@ func take_damage():
 
 func _on_Area2D2_body_entered(body: Node):
 	if body.is_in_group("Player"):
-		body.take_damage()
+		body.take_damage(150)

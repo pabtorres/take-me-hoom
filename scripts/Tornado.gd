@@ -29,5 +29,5 @@ func take_damage():
 func _on_Tornado_body_entered(body: Node):
 	queue_free()
 	if body.is_in_group("Player"):
-		body.take_damage()
+		body.take_damage(50)
 		body.velocity += (body.global_position - global_position).normalized() * 500
