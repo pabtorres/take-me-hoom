@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://scenes/Bus.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/backgrounds/Landscape 1.png" type="Texture" id=2]
@@ -14,9 +14,11 @@
 [ext_resource path="res://scenes/fox.tscn" type="PackedScene" id=12]
 [ext_resource path="res://sprites/ennemies/Tornado_exe6.png" type="Texture" id=13]
 [ext_resource path="res://scenes/Ticket.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/jump_tutorial.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/InGameMenu.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scripts/Checkpoint.gd" type="Script" id=17]
 [ext_resource path="res://sprites/powerups/checkpoint_200x200.png" type="Texture" id=18]
+[ext_resource path="res://scenes/bark_tutorial.tscn" type="PackedScene" id=19]
 [ext_resource path="res://sprites/tilemaps/DesertTileset/tilesheet.png" type="Texture" id=31]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -225,6 +227,12 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="BarkTutorial" parent="." instance=ExtResource( 19 )]
+position = Vector2( 112, 21.3208 )
+
+[node name="JumpTutorial" parent="." instance=ExtResource( 15 )]
+position = Vector2( 418, 18.5453 )
 
 [node name="Kennel" parent="." instance=ExtResource( 11 )]
 

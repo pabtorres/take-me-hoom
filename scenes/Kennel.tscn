@@ -4,7 +4,7 @@
 [ext_resource path="res://sprites/keyitems/kennel.png" type="Texture" id=2]
 [ext_resource path="res://sprites/keyboard keys/D-Key.png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=17]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.438, 34.4095 )
 
 [node name="Kennel" type="Area2D"]
@@ -18,7 +18,7 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1.31445, -0.328644 )
-shape = SubResource( 17 )
+shape = SubResource( 1 )
 
 [node name="Press_D" type="Sprite" parent="."]
 position = Vector2( 35.9243, -23.3508 )
