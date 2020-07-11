@@ -180,9 +180,9 @@ points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 } ]
 0/z_index = 0
 
-[sub_resource type="CapsuleShape2D" id=18]
+[sub_resource type="CapsuleShape2D" id=17]
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=18]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -198,7 +198,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4 ]
 }
 
-[sub_resource type="RectangleShape2D" id=20]
+[sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 6.64008, 10.3568 )
 
 [node name="Root" type="Node2D"]
@@ -243,7 +243,7 @@ script = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tornado"]
 position = Vector2( -3.36157, 7.22736 )
-shape = SubResource( 18 )
+shape = SubResource( 17 )
 
 [node name="Sprite" type="Sprite" parent="Tornado"]
 position = Vector2( -4.1179, 7.09984 )
@@ -252,7 +252,7 @@ texture = ExtResource( 13 )
 hframes = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Tornado"]
-anims/Blow = SubResource( 19 )
+anims/Blow = SubResource( 18 )
 
 [node name="Bus" parent="." instance=ExtResource( 1 )]
 position = Vector2( 4450, -140 )
@@ -272,7 +272,7 @@ script = ExtResource( 17 )
 
 [node name="CheckpointCollisionZone" type="CollisionShape2D" parent="Checkpoint"]
 position = Vector2( -0.536133, -6.49802 )
-shape = SubResource( 20 )
+shape = SubResource( 19 )
 
 [node name="CheckpointSprite" type="Sprite" parent="Checkpoint"]
 position = Vector2( 1.96423, -1.14556 )
@@ -301,7 +301,7 @@ position = Vector2( 3550, -150 )
 position = Vector2( 3330, 40 )
 
 [node name="Ticket" parent="." instance=ExtResource( 14 )]
-position = Vector2( -190.979, 66.2265 )
+position = Vector2( -205.979, 82.2265 )
 
 [node name="Bus2" parent="." instance=ExtResource( 1 )]
 position = Vector2( -35.4811, 55.1814 )

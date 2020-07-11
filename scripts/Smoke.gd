@@ -8,4 +8,4 @@ func _ready():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name=="blow":
-		LevelManager.change_level_to_city()
+		LevelManager.change_desert_to_city_cinematic()

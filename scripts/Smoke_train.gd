@@ -8,4 +8,4 @@ func _ready():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name=="blow":
-		print("end")
+		LevelManager.change_city_to_south_cinematic()
