@@ -209,6 +209,7 @@ func take_damage(damage):
 	if LevelManager.life_points <= 0:
 		anim_player.play("Death")
 		set_physics_process(false)
+		LevelManager.player_death()
 
 
 func _on_Attack_body_entered(body: Node):

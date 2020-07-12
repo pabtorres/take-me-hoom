@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://scenes/Bus.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/backgrounds/Landscape 1.png" type="Texture" id=2]
@@ -13,7 +13,6 @@
 [ext_resource path="res://scenes/Kennel.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/fox.tscn" type="PackedScene" id=12]
 [ext_resource path="res://sprites/ennemies/Tornado_exe6.png" type="Texture" id=13]
-[ext_resource path="res://scenes/Ticket.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/jump_tutorial.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/InGameMenu.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scripts/Checkpoint.gd" type="Script" id=17]
@@ -307,10 +306,4 @@ position = Vector2( 3550, -150 )
 
 [node name="Fox2" parent="." instance=ExtResource( 12 )]
 position = Vector2( 3330, 40 )
-
-[node name="Ticket" parent="." instance=ExtResource( 14 )]
-position = Vector2( -205.979, 82.2265 )
-
-[node name="Bus2" parent="." instance=ExtResource( 1 )]
-position = Vector2( -35.4811, 55.1814 )
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]

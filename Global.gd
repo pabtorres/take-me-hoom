@@ -10,6 +10,8 @@ var keys={"bus":false,"sewer":false,"train":false}
 func _ready():
 	pass
 
+func reset_player_powerups():
+	player_powerups = {"DoubleJump": false, "Small":false}
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

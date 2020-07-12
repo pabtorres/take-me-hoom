@@ -87,3 +87,6 @@ func reset_spawn_positions():
 
 func override_spawn_position(checkpoint: Vector2):
 	spawn_positions[current_level-1] = checkpoint
+
+func player_death():
+	pass

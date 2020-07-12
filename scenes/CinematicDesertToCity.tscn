@@ -11,8 +11,10 @@ script = ExtResource( 2 )
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 108.0
-margin_bottom = 344.0
+margin_left = 131.071
+margin_top = 75.76
+margin_right = -168.929
+margin_bottom = -74.24
 texture = ExtResource( 1 )
 expand = true
 __meta__ = {
@@ -20,10 +22,11 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="CanvasLayer"]
-margin_left = 300.285
-margin_top = 148.746
-margin_right = 312.285
-margin_bottom = 168.746
+margin_left = 213.772
+margin_top = 151.127
+margin_right = 287.772
+margin_bottom = 171.127
+text = "Go to city"
 __meta__ = {
 "_edit_use_anchors_": false
 }
