@@ -34,6 +34,9 @@ var can_sleep = false
 #var double_jump = false
 var recently_jumped = false
 
+var isBig= true
+var isSmall=false
+
 # Chequear caida libre
 var level_just_started = true
 var start_fall_clock = false
@@ -61,6 +64,7 @@ func reverse(val):
 func _ready():
 	# Get life points
 	update_progress_bar(LevelManager.life_points)
+	print(self.scale)
 	# When player is instanciated, it is not in dark mode
 	
 	LevelManager.dark_zone = false
@@ -77,6 +81,7 @@ func on_animation_finished(anim_name: String):
 	if anim_name == "Sleep":
 		if LevelManager.is_player_sleeping == true:
 			LevelManager.turn_to_night()
+			print("night")
 		else:
 			LevelManager.turn_to_day()
 	if anim_name == "Death":
@@ -97,6 +102,21 @@ func _physics_process(delta):
 			velocity.y = -vspeed
 			recently_jumped = true # To test double_jump
 		
+		if Input.is_action_just_pressed("small") && isBig && Global.player_powerups["Small"]:
+			self.set_scale(Vector2(0.5, -0.5))
+			if facing==-1:
+				self.set_scale(Vector2(0.5,0.5))
+			isSmall=true
+			isBig=false
+			print(self.scale)
+		
+		if Input.is_action_just_pressed("big") && isSmall && Global.player_powerups["Small"]:
+			self.set_scale(Vector2(1, -1))
+			if facing==-1:
+				self.set_scale(Vector2(1,1))
+			isBig=true
+			isSmall=false
+			print(self.scale)
 		
 		if Input.is_action_just_pressed("sleep") and !LevelManager.is_player_sleeping and can_sleep:
 			LevelManager.is_player_sleeping = true
@@ -134,8 +154,9 @@ func _physics_process(delta):
 	if target_vel != 0:
 		var new_facing = sign(target_vel)
 		if facing != new_facing:
-			scale.x = -1
+			scale.x = scale.x*(-1)
 			facing = new_facing
+
 		
 
 	# Animation
@@ -182,8 +203,8 @@ func _physics_process(delta):
 		if velocity.y < 0:
 			start_fall_clock = true
 
-func take_damage():
-	LevelManager.life_points-=25
+func take_damage(damage):
+	LevelManager.life_points-=damage
 	update_progress_bar(LevelManager.life_points)
 	if LevelManager.life_points <= 0:
 		anim_player.play("Death")

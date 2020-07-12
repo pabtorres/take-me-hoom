@@ -60,6 +60,12 @@ func change_level_to_city():
 	get_tree().change_scene(level_dict_scenes[current_level])
 	MusicManager.change_music(current_level)
 
+func change_desert_to_city_cinematic():
+	get_tree().change_scene("res://scenes/CinematicDesertToCity.tscn")
+	
+func change_city_to_south_cinematic():
+	get_tree().change_scene("res://scenes/CinematicCityToSouth.tscn")
+
 func reset_life_points():
 	life_points = max_life_points
 

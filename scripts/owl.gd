@@ -40,4 +40,4 @@ func _process(_delta):
 
 func _on_Owl_body_entered(body: Node):
 	if body.is_in_group("Player"):
-		body.take_damage()
+		body.take_damage(25)

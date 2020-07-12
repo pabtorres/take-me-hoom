@@ -27,3 +27,6 @@ func _process(delta):
 		shader.material.set("shader_param/radius", radius_after)
 		shader.material.set("shader_param/amount", amount_after)
 		
+
+
+

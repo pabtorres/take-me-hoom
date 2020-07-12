@@ -335,7 +335,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 17.7447, 20.0426 )
+extents = Vector2( 17.7447, 15.7432 )
 
 [sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 1, 0.419608, 0.592157, 1 )
@@ -410,14 +410,14 @@ scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 2 )
 vframes = 12
 hframes = 13
-frame = 65
+frame = 66
 
 [node name="Scarf" type="Sprite" parent="Sprite"]
 position = Vector2( -8, 7 )
 texture = ExtResource( 6 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 11.142 )
+position = Vector2( 0, 16.8308 )
 z_as_relative = false
 shape = SubResource( 9 )
 
@@ -426,10 +426,12 @@ shape = SubResource( 9 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+anchor_left = -0.000743642
+anchor_right = -0.000743731
 margin_left = 17.697
-margin_top = 12.57
+margin_top = 13.4549
 margin_right = 268.697
-margin_bottom = 50.57
+margin_bottom = 51.4549
 rect_scale = Vector2( 0.333, 0.333 )
 custom_styles/fg = SubResource( 10 )
 custom_styles/bg = SubResource( 11 )

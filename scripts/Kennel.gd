@@ -8,6 +8,7 @@ extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Press_D.visible = false
 	pass # Replace with function body.
 
 
@@ -18,12 +19,17 @@ func _ready():
 
 func _on_Kennel_area_entered(area):
 	pass # Replace with function body.
+	
+func set_sleep_key(state: bool):
+	$Press_D.visible = state
 
 
 func _on_Kennel_body_entered(body):
 	if body.is_in_group("Player"):
+		set_sleep_key(true)
 		body.set_can_sleep(true)
 
 func _on_Kennel_body_exited(body):
 	if body.is_in_group("Player"):
+		set_sleep_key(false)
 		body.set_can_sleep(false)
