@@ -35,6 +35,7 @@ func exit_to_menu():
 	current_level = 0
 	get_tree().change_scene(level_dict_scenes[current_level])
 	reset_spawn_positions()
+	Global.reset_player_powerups()
 	MusicManager.change_music(current_level)
 
 func turn_to_night():

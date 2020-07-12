@@ -43,6 +43,7 @@ script = ExtResource( 2 )
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 margin_right = 1024.0
 margin_bottom = 600.0
+rect_scale = Vector2( 0.333, 0.333 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
