@@ -88,7 +88,7 @@ func on_animation_finished(anim_name: String):
 		print("Te moriste :'(")
 	
 func _physics_process(delta):
-	
+	update_progress_bar(LevelManager.life_points)
 	# Gravity
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP, true)

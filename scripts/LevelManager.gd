@@ -75,6 +75,10 @@ func level_spawn_position():
 func get_max_life_points():
 	return max_life_points
 
+func add_life_points():
+	life_points+=200
+
+
 func set_max_life_points(new_max: int):
 	max_life_points = new_max
 
