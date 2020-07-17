@@ -309,12 +309,12 @@ position = Vector2( 3550, -150 )
 [node name="Fox2" parent="." instance=ExtResource( 12 )]
 position = Vector2( 3330, 40 )
 
-[node name="Ticket" parent="." instance=ExtResource( 14 )]
-position = Vector2( -208.303, 66.3918 )
+[node name="Bone" parent="." instance=ExtResource( 20 )]
+position = Vector2( 2921.13, 37.5478 )
 
 [node name="Bus2" parent="." instance=ExtResource( 1 )]
-position = Vector2( -60.0745, 55.8269 )
+position = Vector2( -76.531, 54.4651 )
 
-[node name="Bone" parent="Bus2" instance=ExtResource( 20 )]
-position = Vector2( 2981.21, -18.2791 )
+[node name="Ticket" parent="Bus2" instance=ExtResource( 14 )]
+position = Vector2( -168.709, 10.1688 )
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]
