@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/move_tutorial.gd" type="Script" id=1]
+[ext_resource path="res://sprites/keyboard keys/left-key.png" type="Texture" id=2]
+[ext_resource path="res://sprites/keyboard keys/right-key.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 95.3913, 73.25 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
+[node name="Press_Left" type="Sprite" parent="Area2D"]
+position = Vector2( -30, -30 )
+scale = Vector2( 0.125, 0.125 )
+texture = ExtResource( 2 )
+
+[node name="Press_Right" type="Sprite" parent="Area2D"]
+position = Vector2( 30, -30 )
+scale = Vector2( 0.125, 0.125 )
+texture = ExtResource( 3 )
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_Area2D_body_exited"]

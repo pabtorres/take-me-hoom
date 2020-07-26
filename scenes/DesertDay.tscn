@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://scenes/Bus.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/backgrounds/Landscape 1.png" type="Texture" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://sprites/powerups/checkpoint_200x200.png" type="Texture" id=18]
 [ext_resource path="res://scenes/bark_tutorial.tscn" type="PackedScene" id=19]
 [ext_resource path="res://scenes/Bone.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/move_tutorial.tscn" type="PackedScene" id=21]
 [ext_resource path="res://sprites/tilemaps/DesertTileset/tilesheet.png" type="Texture" id=31]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -311,6 +312,9 @@ position = Vector2( 3330, 40 )
 
 [node name="Bone" parent="." instance=ExtResource( 20 )]
 position = Vector2( 2921.13, 37.5478 )
+
+[node name="MoveTutorial" parent="." instance=ExtResource( 21 )]
+position = Vector2( -166, 31 )
 
 [node name="Bus2" parent="." instance=ExtResource( 1 )]
 position = Vector2( -76.531, 54.4651 )

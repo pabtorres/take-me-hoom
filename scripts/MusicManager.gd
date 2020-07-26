@@ -5,7 +5,7 @@ const tracks = [
   'PRDS01_DIA.ogg',
   'PRDS01_NOCHE.ogg',
   'PRDS02_DIA.ogg',
-'PRDS02_DIA.ogg', 
+'PRDS02_NOCHE.ogg', 
 ]
 
 var can_change_music = false
