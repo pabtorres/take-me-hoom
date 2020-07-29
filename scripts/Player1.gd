@@ -209,6 +209,7 @@ func take_damage(damage):
 	if LevelManager.life_points <= 0:
 		anim_player.play("Death")
 		set_physics_process(false)
+		yield(anim_player, "animation_finished")
 		LevelManager.player_death()
 
 

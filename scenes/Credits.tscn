@@ -36,7 +36,7 @@ margin_top = 530.0
 margin_right = 218.0
 margin_bottom = 567.0
 custom_fonts/font = SubResource( 1 )
-text = "Back to Main Menu"
+text = "Al Menú Principal"
 __meta__ = {
 "_edit_use_anchors_": false
 }

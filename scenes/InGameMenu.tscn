@@ -97,28 +97,29 @@ margin_right = 260.0
 margin_bottom = 61.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Game Paused"
+text = "Juego Pausado"
 align = 1
 
 [node name="ButtonsContainer" type="VBoxContainer" parent="InGameMenuLayer/InGameMenuContainer"]
 margin_top = 86.0
 margin_right = 260.0
-margin_bottom = 304.0
+margin_bottom = 267.0
 
 [node name="Continue" type="Button" parent="InGameMenuLayer/InGameMenuContainer/ButtonsContainer"]
 margin_right = 260.0
 margin_bottom = 33.0
 custom_fonts/font = SubResource( 3 )
-text = "Continue"
+text = "Continuar"
 
 [node name="Settings" type="Button" parent="InGameMenuLayer/InGameMenuContainer/ButtonsContainer"]
 margin_top = 37.0
 margin_right = 260.0
 margin_bottom = 70.0
 custom_fonts/font = SubResource( 3 )
-text = "Settings"
+text = "Opciones"
 
 [node name="SaveGame" type="Button" parent="InGameMenuLayer/InGameMenuContainer/ButtonsContainer"]
+visible = false
 margin_top = 74.0
 margin_right = 260.0
 margin_bottom = 107.0
@@ -126,25 +127,25 @@ custom_fonts/font = SubResource( 3 )
 text = "Save Game"
 
 [node name="RetryLevel" type="Button" parent="InGameMenuLayer/InGameMenuContainer/ButtonsContainer"]
+margin_top = 74.0
+margin_right = 260.0
+margin_bottom = 107.0
+custom_fonts/font = SubResource( 3 )
+text = "Reiniciar Nivel"
+
+[node name="ExitMainMenu" type="Button" parent="InGameMenuLayer/InGameMenuContainer/ButtonsContainer"]
 margin_top = 111.0
 margin_right = 260.0
 margin_bottom = 144.0
 custom_fonts/font = SubResource( 3 )
-text = "Retry Level"
+text = "Salir al Menú Principal"
 
-[node name="ExitMainMenu" type="Button" parent="InGameMenuLayer/InGameMenuContainer/ButtonsContainer"]
+[node name="ExitGame" type="Button" parent="InGameMenuLayer/InGameMenuContainer/ButtonsContainer"]
 margin_top = 148.0
 margin_right = 260.0
 margin_bottom = 181.0
 custom_fonts/font = SubResource( 3 )
-text = "Exit To Main Menu"
-
-[node name="ExitGame" type="Button" parent="InGameMenuLayer/InGameMenuContainer/ButtonsContainer"]
-margin_top = 185.0
-margin_right = 260.0
-margin_bottom = 218.0
-custom_fonts/font = SubResource( 3 )
-text = "Exit Game"
+text = "Salir del Juego"
 
 [node name="SettingsPanel" type="Panel" parent="InGameMenuLayer"]
 visible = false
@@ -170,7 +171,7 @@ margin_top = -100.0
 margin_right = 57.5
 margin_bottom = -52.0
 custom_fonts/font = SubResource( 4 )
-text = "Settings"
+text = "Opciones"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -194,7 +195,7 @@ __meta__ = {
 margin_right = 123.0
 margin_bottom = 31.0
 custom_fonts/font = SubResource( 5 )
-text = "Music"
+text = "Música"
 align = 2
 
 [node name="SoundEffects" type="Label" parent="InGameMenuLayer/SettingsPanel/SettingsNames"]
@@ -202,7 +203,7 @@ margin_top = 51.0
 margin_right = 123.0
 margin_bottom = 82.0
 custom_fonts/font = SubResource( 6 )
-text = "Sound Effects"
+text = "Sonidos"
 align = 2
 
 [node name="SettingsButtons" type="VBoxContainer" parent="InGameMenuLayer/SettingsPanel"]
@@ -242,7 +243,7 @@ margin_top = -70.0
 margin_right = 59.5
 margin_bottom = -37.0
 custom_fonts/font = SubResource( 7 )
-text = "Back to Menu"
+text = "Volver"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -266,9 +267,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -200.0
+margin_left = -254.0
 margin_top = -75.5
-margin_right = 200.0
+margin_right = 254.0
 margin_bottom = 75.5
 custom_constants/separation = 40
 __meta__ = {
@@ -276,35 +277,35 @@ __meta__ = {
 }
 
 [node name="ToMenuDialog" type="Label" parent="InGameMenuLayer/MenuConfirmationPanel/ConfirmMainMenu"]
-margin_right = 400.0
+margin_right = 508.0
 margin_bottom = 71.0
 custom_fonts/font = SubResource( 8 )
-text = "Are you sure you want
-to exit to Main Menu?"
+text = "¿Estás seguro de que quieres salir
+al Menú Principal?"
 align = 1
 
 [node name="ToMenuContainer" type="HBoxContainer" parent="InGameMenuLayer/MenuConfirmationPanel/ConfirmMainMenu"]
 margin_top = 111.0
-margin_right = 400.0
+margin_right = 508.0
 margin_bottom = 151.0
 custom_constants/separation = 40
 alignment = 1
 
 [node name="NoMenu" type="Button" parent="InGameMenuLayer/MenuConfirmationPanel/ConfirmMainMenu/ToMenuContainer"]
-margin_left = 110.0
-margin_right = 180.0
+margin_left = 164.0
+margin_right = 234.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 70, 40 )
 custom_fonts/font = SubResource( 9 )
 text = "NO"
 
 [node name="YesMenu" type="Button" parent="InGameMenuLayer/MenuConfirmationPanel/ConfirmMainMenu/ToMenuContainer"]
-margin_left = 220.0
-margin_right = 290.0
+margin_left = 274.0
+margin_right = 344.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 70, 40 )
 custom_fonts/font = SubResource( 10 )
-text = "YES"
+text = "SI"
 
 [node name="ExitConfirmationPanel" type="Panel" parent="InGameMenuLayer"]
 visible = false
@@ -325,9 +326,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -90.0
+margin_left = -214.0
 margin_top = -75.5
-margin_right = 90.0
+margin_right = 214.0
 margin_bottom = 75.5
 custom_constants/separation = 40
 __meta__ = {
@@ -335,34 +336,34 @@ __meta__ = {
 }
 
 [node name="ExitDialog" type="Label" parent="InGameMenuLayer/ExitConfirmationPanel/ConfirmExit"]
-margin_right = 180.0
-margin_bottom = 71.0
+margin_right = 428.0
+margin_bottom = 34.0
 custom_fonts/font = SubResource( 11 )
-text = "Are you sure you
-want to exit?"
+text = "¿Estás seguro de que quieres salir del juego?"
 align = 1
 
 [node name="ExitContainer" type="HBoxContainer" parent="InGameMenuLayer/ExitConfirmationPanel/ConfirmExit"]
-margin_top = 111.0
-margin_right = 180.0
-margin_bottom = 151.0
+margin_top = 74.0
+margin_right = 428.0
+margin_bottom = 114.0
 custom_constants/separation = 40
 alignment = 1
 
 [node name="NoExit" type="Button" parent="InGameMenuLayer/ExitConfirmationPanel/ConfirmExit/ExitContainer"]
-margin_right = 70.0
+margin_left = 124.0
+margin_right = 194.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 70, 40 )
 custom_fonts/font = SubResource( 12 )
 text = "NO"
 
 [node name="YesExit" type="Button" parent="InGameMenuLayer/ExitConfirmationPanel/ConfirmExit/ExitContainer"]
-margin_left = 110.0
-margin_right = 180.0
+margin_left = 234.0
+margin_right = 304.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 70, 40 )
 custom_fonts/font = SubResource( 13 )
-text = "YES"
+text = "SI"
 [connection signal="pressed" from="InGameMenuLayer/InGameMenuContainer/ButtonsContainer/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="InGameMenuLayer/InGameMenuContainer/ButtonsContainer/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="pressed" from="InGameMenuLayer/InGameMenuContainer/ButtonsContainer/RetryLevel" to="." method="_on_RetryLevel_pressed"]
