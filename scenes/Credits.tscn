@@ -2,7 +2,7 @@
 
 [ext_resource path="res://fonts/Gotu/Gotu-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/Credits.gd" type="Script" id=2]
-[ext_resource path="res://sprites/credits/credits.jpg" type="Texture" id=3]
+[ext_resource path="res://sprites/credits/credits.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 18

@@ -5,12 +5,14 @@ const tracks = [
   'PRDS01_DIA.ogg',
   'PRDS01_NOCHE.ogg',
   'PRDS02_DIA.ogg',
-'PRDS02_NOCHE.ogg', 
+  'PRDS02_NOCHE.ogg',
+  'PRDS03_ENDING.ogg',
 ]
 
 var can_change_music = false
 
 func _ready():
+	 set_volume_db(-7.0)
 	 var audiostream = load("res://music/" + tracks[0])
 	 set_stream(audiostream)
 	 play()

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Down-key.png-55928202a4eb3d0cae0eb0e134bf0d9a.stex"
+path="res://.import/3.png-ba35a4b805a2f9aa614144eaa9ccca93.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/keyboard keys/Down-key.png"
-dest_files=[ "res://.import/Down-key.png-55928202a4eb3d0cae0eb0e134bf0d9a.stex" ]
+source_file="res://sprites/cinematics/city_south/3.png"
+dest_files=[ "res://.import/3.png-ba35a4b805a2f9aa614144eaa9ccca93.stex" ]
 
 [params]
 

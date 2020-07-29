@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/PRDS03_ENDING.ogg-6e4e1fbf24053b61bcf0258b67efe61d.oggstr"
+
+[deps]
+
+source_file="res://music/PRDS03_ENDING.ogg"
+dest_files=[ "res://.import/PRDS03_ENDING.ogg-6e4e1fbf24053b61bcf0258b67efe61d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
