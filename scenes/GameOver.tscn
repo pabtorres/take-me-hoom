@@ -35,11 +35,16 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="GameOverContainer"]
-visible = false
-margin_left = 47.1937
-margin_top = 70.7906
-margin_right = 299.194
-margin_bottom = 196.791
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -126.0
+margin_top = -63.0
+margin_right = 126.0
+margin_bottom = 63.0
+rect_scale = Vector2( 0.3, 0.3 )
+rect_pivot_offset = Vector2( 126, 63 )
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
