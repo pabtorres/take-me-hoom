@@ -18,7 +18,7 @@ func _physics_process(delta):
 		$CanvasLayer/TextureRect.set_texture(load(backgrounds[current_background]))
 
 func _on_NewGame_pressed():
-	get_tree().change_scene("res://scenes/CinematicMenuDesert.tscn")
+	get_tree().change_scene("res://scenes/InitialCinematic1.tscn")
 
 func _on_LoadGame_pressed():
 	get_tree().change_scene("res://scenes/SavedGames.tscn")

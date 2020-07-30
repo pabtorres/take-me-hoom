@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://sprites/cinematics/initial_cinematics/8.png" type="Texture" id=1]
 [ext_resource path="res://sprites/cinematics/initial_cinematics/5.png" type="Texture" id=2]
@@ -10,14 +10,117 @@
 [ext_resource path="res://sprites/cinematics/initial_cinematics/7.png" type="Texture" id=8]
 [ext_resource path="res://sprites/cinematics/initial_cinematics/1.png" type="Texture" id=9]
 [ext_resource path="res://scripts/InitialCinematic.gd" type="Script" id=10]
+[ext_resource path="res://fonts/Gotu/Gotu-Regular.ttf" type="DynamicFontData" id=11]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.466667 )
 
+[sub_resource type="DynamicFont" id=2]
+size = 12
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=22]
+size = 10
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 9
+font_data = ExtResource( 11 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 0.466667 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 10
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 9
+font_data = ExtResource( 11 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.113281, 0.112839, 0.112839, 0.466667 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 10
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 9
+font_data = ExtResource( 11 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0, 0, 0, 0.466667 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 10
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 9
+font_data = ExtResource( 11 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0, 0, 0, 0.466667 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 10
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 9
+font_data = ExtResource( 11 )
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0, 0, 0, 0.466667 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 10
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 9
+font_data = ExtResource( 11 )
+
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 0, 0, 0, 0.466667 )
+
+[sub_resource type="DynamicFont" id=20]
+size = 10
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 9
+font_data = ExtResource( 11 )
+
+[sub_resource type="StyleBoxFlat" id=23]
+bg_color = Color( 0, 0, 0, 0.466667 )
+
+[sub_resource type="DynamicFont" id=24]
+size = 10
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=25]
+size = 9
+font_data = ExtResource( 11 )
+
+[sub_resource type="StyleBoxFlat" id=26]
+bg_color = Color( 0, 0, 0, 0.466667 )
+
+[sub_resource type="DynamicFont" id=27]
+size = 10
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=28]
+size = 9
+font_data = ExtResource( 11 )
+
 [node name="Cinematic1" type="Node2D"]
 script = ExtResource( 10 )
 
-[node name="Scene1" type="CanvasLayer" parent="."]
+[node name="Scene1" type="CanvasLayer" parent="." groups=[
+"Scene1",
+]]
 
 [node name="FamilyCountrySide" type="TextureRect" parent="Scene1"]
 margin_left = -140.165
@@ -29,32 +132,66 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextBackground" type="Panel" parent="Scene1"]
+[node name="TextBackground" type="Panel" parent="Scene1" groups=[
+"TextBackground1",
+]]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -123.666
-margin_top = 12.681
-margin_right = 124.334
-margin_bottom = 52.681
+margin_left = -140.0
+margin_top = 13.0
+margin_right = 144.0
+margin_bottom = 53.0
 custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Text1" type="RichTextLabel" parent="Scene1" groups=[
+[node name="Text" type="RichTextLabel" parent="Scene1" groups=[
 "RichTextScene1",
 ]]
-margin_left = 47.0
+margin_left = 31.0
 margin_top = 14.0
-margin_right = 293.0
-margin_bottom = 52.0
-visible_characters = 1
-text = "Érase una vez, una familia feliz en el sur de Chile uwu"
+margin_right = 314.0
+margin_bottom = 60.0
+custom_fonts/normal_font = SubResource( 2 )
+visible_characters = 0
+text = "Érase una vez, una familia feliz en el sur de Chile, la familia González Pereira."
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Scene2" type="CanvasLayer" parent="."]
+[node name="Text2" type="RichTextLabel" parent="Scene1" groups=[
+"RichTextScene1",
+]]
+visible = false
+margin_left = 32.0
+margin_top = 14.0
+margin_right = 318.0
+margin_bottom = 53.0
+custom_fonts/normal_font = SubResource( 22 )
+visible_characters = 0
+text = "La familia González Pereira estaba compuesta por Juan, Fernanda, su hija María y su perro regalón, Cachupín."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="Button" parent="Scene1" groups=[
+"ButtonScene1",
+]]
+visible = false
+margin_left = 286.0
+margin_top = 178.0
+margin_right = 339.0
+margin_bottom = 200.0
+custom_fonts/font = SubResource( 4 )
+text = "Siguiente"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scene2" type="CanvasLayer" parent="." groups=[
+"Scene2",
+]]
 
 [node name="KidPlayingDog" type="TextureRect" parent="Scene2"]
 visible = false
@@ -67,7 +204,55 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Scene3" type="CanvasLayer" parent="."]
+[node name="TextBackground" type="Panel" parent="Scene2" groups=[
+"TextBackground2",
+]]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -157.0
+margin_top = 6.0
+margin_right = 70.0
+margin_bottom = 64.0
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text2" type="RichTextLabel" parent="Scene2" groups=[
+"RichTextScene2",
+]]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -153.436
+margin_top = 6.58168
+margin_right = 72.5636
+margin_bottom = 64.5817
+custom_fonts/normal_font = SubResource( 5 )
+visible_characters = 0
+text = "María y Cachupín tenían un vínculo muy especial, solían pasar gran parte del día paseando y jugando juntos."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="Button" parent="Scene2" groups=[
+"ButtonScene2",
+]]
+visible = false
+margin_left = 286.0
+margin_top = 178.0
+margin_right = 339.0
+margin_bottom = 200.0
+custom_fonts/font = SubResource( 6 )
+text = "Siguiente"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scene3" type="CanvasLayer" parent="." groups=[
+"Scene3",
+]]
 
 [node name="Airport" type="TextureRect" parent="Scene3"]
 visible = false
@@ -85,7 +270,50 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Scene4" type="CanvasLayer" parent="."]
+[node name="TextBackground" type="Panel" parent="Scene3" groups=[
+"TextBackground3",
+]]
+visible = false
+margin_left = 16.0
+margin_top = 124.0
+margin_right = 323.0
+margin_bottom = 181.0
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text3" type="RichTextLabel" parent="Scene3" groups=[
+"RichTextScene3",
+]]
+visible = false
+margin_left = 17.0
+margin_top = 123.0
+margin_right = 323.0
+margin_bottom = 182.0
+custom_fonts/normal_font = SubResource( 8 )
+text = "Todos los veranos, la familia González acostumbraba viajar a San Pedro de Atacama en sus vacaciones, tomando siempre un vuelo desde el aeropuerto de Concepción."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="Button" parent="Scene3" groups=[
+"ButtonScene3",
+]]
+visible = false
+margin_left = 286.0
+margin_top = 178.0
+margin_right = 339.0
+margin_bottom = 200.0
+custom_fonts/font = SubResource( 9 )
+text = "Siguiente"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scene4" type="CanvasLayer" parent="." groups=[
+"Scene4",
+]]
 
 [node name="DogPlane" type="TextureRect" parent="Scene4"]
 visible = false
@@ -98,7 +326,51 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Scene5" type="CanvasLayer" parent="."]
+[node name="TextBackground" type="Panel" parent="Scene4" groups=[
+"TextBackground4",
+]]
+visible = false
+margin_left = 7.0
+margin_top = 5.0
+margin_right = 331.0
+margin_bottom = 58.0
+custom_styles/panel = SubResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text4" type="RichTextLabel" parent="Scene4" groups=[
+"RichTextScene4",
+]]
+visible = false
+margin_left = 7.57262
+margin_top = 3.5636
+margin_right = 330.573
+margin_bottom = 60.5636
+custom_fonts/normal_font = SubResource( 11 )
+visible_characters = 0
+text = "Cada vez que viajaban, Cachupín acostumbraba mirar los paisajes por la ventana, siempre le llamaba la atención la altura de las construcciones de la gran ciudad."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="Button" parent="Scene4" groups=[
+"ButtonScene4",
+]]
+visible = false
+margin_left = 286.0
+margin_top = 178.0
+margin_right = 339.0
+margin_bottom = 200.0
+custom_fonts/font = SubResource( 12 )
+text = "Siguiente"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scene5" type="CanvasLayer" parent="." groups=[
+"Scene5",
+]]
 
 [node name="SanPedroScene1" type="TextureRect" parent="Scene5"]
 visible = false
@@ -112,7 +384,50 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Scene6" type="CanvasLayer" parent="."]
+[node name="TextBackground" type="Panel" parent="Scene5" groups=[
+"TextBackground5",
+]]
+visible = false
+margin_left = 15.0
+margin_top = 6.0
+margin_right = 321.0
+margin_bottom = 61.0
+custom_styles/panel = SubResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text5" type="RichTextLabel" parent="Scene5" groups=[
+"RichTextScene5",
+]]
+visible = false
+margin_left = 17.8909
+margin_top = 6.3273
+margin_right = 322.891
+margin_bottom = 63.3273
+custom_fonts/normal_font = SubResource( 14 )
+text = "Un día, mientras la familia disfrutaba de un paseo en la ciudad de San Pedro, Cachupín vió algo que le llamó la atención."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="Button" parent="Scene5" groups=[
+"ButtonScene5",
+]]
+visible = false
+margin_left = 286.0
+margin_top = 178.0
+margin_right = 339.0
+margin_bottom = 200.0
+custom_fonts/font = SubResource( 15 )
+text = "Siguiente"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scene6" type="CanvasLayer" parent="." groups=[
+"Scene6",
+]]
 
 [node name="DogLookingVulture" type="TextureRect" parent="Scene6"]
 visible = false
@@ -126,7 +441,51 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Scene7" type="CanvasLayer" parent="."]
+[node name="TextBackground" type="Panel" parent="Scene6" groups=[
+"TextBackground6",
+]]
+visible = false
+margin_left = 9.0
+margin_top = 144.309
+margin_right = 322.0
+margin_bottom = 185.309
+custom_styles/panel = SubResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text6" type="RichTextLabel" parent="Scene6" groups=[
+"RichTextScene6",
+]]
+visible = false
+margin_left = 7.0
+margin_top = 155.755
+margin_right = 319.0
+margin_bottom = 185.755
+custom_fonts/normal_font = SubResource( 17 )
+visible_characters = 0
+text = "\"¡Vaya! ¡Jamás había visto uno de esos!\" - pensó Cachupín."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="Button" parent="Scene6" groups=[
+"ButtonScene6",
+]]
+visible = false
+margin_left = 286.0
+margin_top = 178.0
+margin_right = 339.0
+margin_bottom = 200.0
+custom_fonts/font = SubResource( 18 )
+text = "Siguiente"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scene7" type="CanvasLayer" parent="." groups=[
+"Scene7",
+]]
 
 [node name="DogChasingVulture" type="TextureRect" parent="Scene7"]
 visible = false
@@ -140,7 +499,51 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Scene8" type="CanvasLayer" parent="."]
+[node name="TextBackground" type="Panel" parent="Scene7" groups=[
+"TextBackground7",
+]]
+visible = false
+margin_left = 9.0
+margin_top = 117.0
+margin_right = 219.0
+margin_bottom = 193.0
+custom_styles/panel = SubResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text7" type="RichTextLabel" parent="Scene7" groups=[
+"RichTextScene7",
+]]
+visible = false
+margin_left = 12.0
+margin_top = 118.0
+margin_right = 216.0
+margin_bottom = 194.0
+custom_fonts/normal_font = SubResource( 20 )
+visible_characters = 0
+text = "Tal fue la curiosidad de Cachupín por el desconocido pájaro, que apenas el ave emprendió vuelo, Cachupín salió en su persecución, dejando atrás a su familia."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="Button" parent="Scene7" groups=[
+"ButtonScene7",
+]]
+visible = false
+margin_left = 286.0
+margin_top = 178.0
+margin_right = 339.0
+margin_bottom = 200.0
+custom_fonts/font = SubResource( 21 )
+text = "Siguiente"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scene8" type="CanvasLayer" parent="." groups=[
+"Scene8",
+]]
 
 [node name="MissingDog" type="TextureRect" parent="Scene8"]
 visible = false
@@ -154,7 +557,51 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Scene9" type="CanvasLayer" parent="."]
+[node name="TextBackground" type="Panel" parent="Scene8" groups=[
+"TextBackground8",
+]]
+visible = false
+margin_left = 28.0
+margin_top = 137.809
+margin_right = 316.0
+margin_bottom = 171.809
+custom_styles/panel = SubResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text8" type="RichTextLabel" parent="Scene8" groups=[
+"RichTextScene8",
+]]
+visible = false
+margin_left = 27.0
+margin_top = 139.0
+margin_right = 314.0
+margin_bottom = 170.0
+custom_fonts/normal_font = SubResource( 24 )
+visible_characters = 0
+text = "Placeholder"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="Button" parent="Scene8" groups=[
+"ButtonScene8",
+]]
+visible = false
+margin_left = 286.0
+margin_top = 178.0
+margin_right = 339.0
+margin_bottom = 200.0
+custom_fonts/font = SubResource( 25 )
+text = "Siguiente"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scene9" type="CanvasLayer" parent="." groups=[
+"Scene9",
+]]
 
 [node name="MissingDog2" type="TextureRect" parent="Scene9"]
 visible = false
@@ -167,3 +614,54 @@ texture = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TextBackground" type="Panel" parent="Scene9" groups=[
+"TextBackground9",
+]]
+visible = false
+margin_left = 17.0
+margin_top = 9.0
+margin_right = 321.0
+margin_bottom = 61.0
+custom_styles/panel = SubResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text9" type="RichTextLabel" parent="Scene9" groups=[
+"RichTextScene9",
+]]
+visible = false
+margin_left = 19.0
+margin_top = 11.0
+margin_right = 319.0
+margin_bottom = 59.0
+custom_fonts/normal_font = SubResource( 27 )
+visible_characters = 0
+text = "Placeholder"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="Button" parent="Scene9" groups=[
+"ButtonScene9",
+]]
+visible = false
+margin_left = 286.0
+margin_top = 178.0
+margin_right = 339.0
+margin_bottom = 200.0
+custom_fonts/font = SubResource( 28 )
+text = "Siguiente"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Scene1/NextButton" to="." method="_on_Siguiente_pressed"]
+[connection signal="pressed" from="Scene2/NextButton" to="." method="_on_Siguiente_pressed"]
+[connection signal="pressed" from="Scene3/NextButton" to="." method="_on_Siguiente_pressed"]
+[connection signal="pressed" from="Scene4/NextButton" to="." method="_on_Siguiente_pressed"]
+[connection signal="pressed" from="Scene5/NextButton" to="." method="_on_Siguiente_pressed"]
+[connection signal="pressed" from="Scene6/NextButton" to="." method="_on_Siguiente_pressed"]
+[connection signal="pressed" from="Scene7/NextButton" to="." method="_on_Siguiente_pressed"]
+[connection signal="pressed" from="Scene8/NextButton" to="." method="_on_Siguiente_pressed"]
+[connection signal="pressed" from="Scene9/NextButton" to="." method="_on_Siguiente_pressed"]

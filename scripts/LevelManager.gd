@@ -60,6 +60,9 @@ func change_level_to_city():
 	get_tree().change_scene(level_dict_scenes[current_level])
 	MusicManager.change_music(current_level)
 
+func change_initial_cinematic_to_desert_cinematic():
+	get_tree().change_scene("res://scenes/CinematicMenuDesert.tscn")
+
 func change_desert_to_city_cinematic():
 	get_tree().change_scene("res://scenes/CinematicDesertToCity.tscn")
 	
