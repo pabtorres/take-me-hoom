@@ -44,4 +44,4 @@ func _on_Next_pressed():
 
 
 func _on_Final_pressed():
-	LevelManager.exit_to_menu()
+	get_tree().change_scene("res://scenes/EndingCredits.tscn")

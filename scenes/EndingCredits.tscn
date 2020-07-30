@@ -1,0 +1,389 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://sprites/cinematics/initial_cinematics/1.png" type="Texture" id=1]
+[ext_resource path="res://fonts/Gotu/Gotu-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scripts/EndingCredits.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.588235 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 12
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 12
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 12
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 12
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=19]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=20]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=22]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=23]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=24]
+size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=25]
+size = 9
+font_data = ExtResource( 2 )
+
+[node name="Ending" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="EndingContainer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="EndingContainer"]
+margin_left = -125.535
+margin_top = 0.471924
+margin_right = 1794.46
+margin_bottom = 800.472
+rect_scale = Vector2( 0.251, 0.251 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="EndingContainer"]
+margin_left = -6.60712
+margin_top = -6.6071
+margin_right = 347.393
+margin_bottom = 207.393
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditsExt" type="VBoxContainer" parent="EndingContainer" groups=[
+"EndingCredits",
+]]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -102.0
+margin_top = 200.0
+margin_right = 102.0
+margin_bottom = 1047.0
+custom_constants/separation = 150
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="VBoxContainer" parent="EndingContainer/CreditsExt"]
+margin_right = 204.0
+margin_bottom = 663.0
+custom_constants/separation = 40
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Label" parent="EndingContainer/CreditsExt/Credits"]
+margin_right = 204.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 2 )
+text = "Créditos"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DesignProg" type="VBoxContainer" parent="EndingContainer/CreditsExt/Credits"]
+margin_top = 67.0
+margin_right = 204.0
+margin_bottom = 160.0
+custom_constants/separation = 10
+
+[node name="Design" type="Label" parent="EndingContainer/CreditsExt/Credits/DesignProg"]
+margin_right = 204.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 3 )
+text = "Diseño y Programación"
+align = 1
+
+[node name="Progs" type="VBoxContainer" parent="EndingContainer/CreditsExt/Credits/DesignProg"]
+margin_top = 31.0
+margin_right = 204.0
+margin_bottom = 93.0
+
+[node name="Adele" type="Label" parent="EndingContainer/CreditsExt/Credits/DesignProg/Progs"]
+margin_right = 204.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 4 )
+text = "Adèle Bourgeix"
+align = 1
+
+[node name="Pablo" type="Label" parent="EndingContainer/CreditsExt/Credits/DesignProg/Progs"]
+margin_top = 22.0
+margin_right = 204.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 5 )
+text = "Pablo Torres G."
+align = 1
+
+[node name="Tomas" type="Label" parent="EndingContainer/CreditsExt/Credits/DesignProg/Progs"]
+margin_top = 44.0
+margin_right = 204.0
+margin_bottom = 62.0
+custom_fonts/font = SubResource( 6 )
+text = "Tomás Estévez L."
+align = 1
+
+[node name="Music" type="VBoxContainer" parent="EndingContainer/CreditsExt/Credits"]
+margin_top = 200.0
+margin_right = 204.0
+margin_bottom = 271.0
+custom_constants/separation = 10
+
+[node name="Music" type="Label" parent="EndingContainer/CreditsExt/Credits/Music"]
+margin_right = 204.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 7 )
+text = "Banda Sonora"
+align = 1
+
+[node name="Musicians" type="VBoxContainer" parent="EndingContainer/CreditsExt/Credits/Music"]
+margin_top = 31.0
+margin_right = 204.0
+margin_bottom = 71.0
+
+[node name="Rodrigo" type="Label" parent="EndingContainer/CreditsExt/Credits/Music/Musicians"]
+margin_right = 204.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 8 )
+text = "Rodrigo Villegas"
+align = 1
+
+[node name="bensound" type="Label" parent="EndingContainer/CreditsExt/Credits/Music/Musicians"]
+margin_top = 22.0
+margin_right = 204.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 9 )
+text = "bensound.com"
+align = 1
+
+[node name="ArtDesign" type="VBoxContainer" parent="EndingContainer/CreditsExt/Credits"]
+margin_top = 311.0
+margin_right = 204.0
+margin_bottom = 448.0
+custom_constants/separation = 10
+
+[node name="Art" type="Label" parent="EndingContainer/CreditsExt/Credits/ArtDesign"]
+margin_right = 204.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 10 )
+text = "Arte"
+align = 1
+
+[node name="Artists" type="VBoxContainer" parent="EndingContainer/CreditsExt/Credits/ArtDesign"]
+margin_top = 31.0
+margin_right = 204.0
+margin_bottom = 137.0
+
+[node name="Francisca" type="Label" parent="EndingContainer/CreditsExt/Credits/ArtDesign/Artists"]
+margin_right = 204.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 11 )
+text = "Francisca Vergara"
+align = 1
+
+[node name="Catalina" type="Label" parent="EndingContainer/CreditsExt/Credits/ArtDesign/Artists"]
+margin_top = 22.0
+margin_right = 204.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 12 )
+text = "Catalina López"
+align = 1
+
+[node name="Adele" type="Label" parent="EndingContainer/CreditsExt/Credits/ArtDesign/Artists"]
+margin_top = 44.0
+margin_right = 204.0
+margin_bottom = 62.0
+custom_fonts/font = SubResource( 13 )
+text = "Adèle Bourgeix"
+align = 1
+
+[node name="Pablo" type="Label" parent="EndingContainer/CreditsExt/Credits/ArtDesign/Artists"]
+margin_top = 66.0
+margin_right = 204.0
+margin_bottom = 84.0
+custom_fonts/font = SubResource( 14 )
+text = "Pablo Torres G."
+align = 1
+
+[node name="Tomas" type="Label" parent="EndingContainer/CreditsExt/Credits/ArtDesign/Artists"]
+margin_top = 88.0
+margin_right = 204.0
+margin_bottom = 106.0
+custom_fonts/font = SubResource( 15 )
+text = "Tomás Estévez L."
+align = 1
+
+[node name="SpritesImages" type="VBoxContainer" parent="EndingContainer/CreditsExt/Credits"]
+margin_top = 488.0
+margin_right = 204.0
+margin_bottom = 663.0
+
+[node name="Sprites" type="Label" parent="EndingContainer/CreditsExt/Credits/SpritesImages"]
+margin_right = 204.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 16 )
+text = "Sprites e Imágenes"
+align = 1
+
+[node name="Sites" type="VBoxContainer" parent="EndingContainer/CreditsExt/Credits/SpritesImages"]
+margin_top = 25.0
+margin_right = 204.0
+margin_bottom = 175.0
+
+[node name="pzUH" type="Label" parent="EndingContainer/CreditsExt/Credits/SpritesImages/Sites"]
+margin_right = 204.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 17 )
+text = "pzUH"
+align = 1
+
+[node name="Kenney" type="Label" parent="EndingContainer/CreditsExt/Credits/SpritesImages/Sites"]
+margin_top = 22.0
+margin_right = 204.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 18 )
+text = "Kenney"
+align = 1
+
+[node name="Pickpng" type="Label" parent="EndingContainer/CreditsExt/Credits/SpritesImages/Sites"]
+margin_top = 44.0
+margin_right = 204.0
+margin_bottom = 62.0
+custom_fonts/font = SubResource( 19 )
+text = "Pickpng"
+align = 1
+
+[node name="hiddenone" type="Label" parent="EndingContainer/CreditsExt/Credits/SpritesImages/Sites"]
+margin_top = 66.0
+margin_right = 204.0
+margin_bottom = 84.0
+custom_fonts/font = SubResource( 20 )
+text = "hiddenone"
+align = 1
+
+[node name="GeraldBurke" type="Label" parent="EndingContainer/CreditsExt/Credits/SpritesImages/Sites"]
+margin_top = 88.0
+margin_right = 204.0
+margin_bottom = 106.0
+custom_fonts/font = SubResource( 21 )
+text = "Gerald Burke"
+align = 1
+
+[node name="Audentio" type="Label" parent="EndingContainer/CreditsExt/Credits/SpritesImages/Sites"]
+margin_top = 110.0
+margin_right = 204.0
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 22 )
+text = "Audentio"
+align = 1
+
+[node name="freepik" type="Label" parent="EndingContainer/CreditsExt/Credits/SpritesImages/Sites"]
+margin_top = 132.0
+margin_right = 204.0
+margin_bottom = 150.0
+custom_fonts/font = SubResource( 23 )
+text = "freepik"
+align = 1
+
+[node name="Greeting" type="Label" parent="EndingContainer/CreditsExt" groups=[
+"Greeting",
+]]
+margin_top = 813.0
+margin_right = 204.0
+margin_bottom = 847.0
+custom_fonts/font = SubResource( 24 )
+text = "¡Gracias por jugar :D!"
+align = 1
+
+[node name="Button" type="Button" parent="EndingContainer" groups=[
+"EndButton",
+]]
+visible = false
+margin_left = 249.464
+margin_top = 175.129
+margin_right = 337.464
+margin_bottom = 197.129
+custom_fonts/font = SubResource( 25 )
+text = "Al menú principal"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="EndingContainer/Button" to="." method="_on_Ending_pressed"]
