@@ -292,6 +292,7 @@ margin_top = 123.0
 margin_right = 323.0
 margin_bottom = 182.0
 custom_fonts/normal_font = SubResource( 8 )
+visible_characters = 0
 text = "Todos los veranos, la familia González acostumbraba viajar a San Pedro de Atacama en sus vacaciones, tomando siempre un vuelo desde el aeropuerto de Concepción."
 __meta__ = {
 "_edit_use_anchors_": false
@@ -406,6 +407,7 @@ margin_top = 6.3273
 margin_right = 322.891
 margin_bottom = 63.3273
 custom_fonts/normal_font = SubResource( 14 )
+visible_characters = 0
 text = "Un día, mientras la familia disfrutaba de un paseo en la ciudad de San Pedro, Cachupín vió algo que le llamó la atención."
 __meta__ = {
 "_edit_use_anchors_": false
