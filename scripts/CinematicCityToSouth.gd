@@ -41,3 +41,7 @@ func _on_Next_pressed():
 		if not element.is_in_group("NextButtonSouth" + str(actual_scene)):
 			element.show()
 	chars_to_show = true
+
+
+func _on_Final_pressed():
+	LevelManager.exit_to_menu()

@@ -67,7 +67,9 @@ func change_desert_to_city_cinematic():
 	get_tree().change_scene("res://scenes/CinematicDesertToCity.tscn")
 	
 func change_city_to_south_cinematic():
+	current_level = 5
 	get_tree().change_scene("res://scenes/CinematicCityToSouth.tscn")
+	MusicManager.change_music(current_level)
 
 func reset_life_points():
 	life_points = max_life_points
