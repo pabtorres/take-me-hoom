@@ -10,7 +10,7 @@ var rich_group_text = "RichTextScene"
 var ticks = 0
 var ticks_to_show_character = 3
 var chars_to_show = true
-var max_text_boxes_per_scene = [2,1,1,1,1,1,1,1,1]
+var max_text_boxes_per_scene = [2,1,1,1,1,1,1,1,1,1]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,7 +44,7 @@ func _physics_process(delta):
 
 func _on_Siguiente_pressed():
 	if current_text_box == max_text_boxes_per_scene[actual_scene-1]:
-		if actual_scene == 9:
+		if actual_scene == 10:
 			LevelManager.change_initial_cinematic_to_desert_cinematic()
 		else:
 			var scene = get_tree().get_nodes_in_group("Scene" + str(actual_scene))[0]
@@ -64,3 +64,7 @@ func _on_Siguiente_pressed():
 		get_tree().get_nodes_in_group("ButtonScene" + str(actual_scene))[0].hide()
 		current_text_box += 1
 		chars_to_show = true
+
+
+func _on_Skip_pressed():
+	LevelManager.change_initial_cinematic_to_desert_cinematic()

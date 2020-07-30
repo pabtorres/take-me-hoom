@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://sprites/cinematics/initial_cinematics/8.png" type="Texture" id=1]
 [ext_resource path="res://sprites/cinematics/initial_cinematics/5.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://sprites/cinematics/initial_cinematics/1.png" type="Texture" id=9]
 [ext_resource path="res://scripts/InitialCinematic.gd" type="Script" id=10]
 [ext_resource path="res://fonts/Gotu/Gotu-Regular.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://sprites/cinematics/initial_cinematics/10.png" type="Texture" id=12]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.466667 )
@@ -93,6 +94,17 @@ font_data = ExtResource( 11 )
 size = 9
 font_data = ExtResource( 11 )
 
+[sub_resource type="StyleBoxFlat" id=29]
+bg_color = Color( 0, 0, 0, 0.466667 )
+
+[sub_resource type="DynamicFont" id=30]
+size = 10
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=31]
+size = 9
+font_data = ExtResource( 11 )
+
 [sub_resource type="StyleBoxFlat" id=23]
 bg_color = Color( 0, 0, 0, 0.466667 )
 
@@ -113,6 +125,10 @@ font_data = ExtResource( 11 )
 
 [sub_resource type="DynamicFont" id=28]
 size = 9
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=32]
+size = 6
 font_data = ExtResource( 11 )
 
 [node name="Cinematic1" type="Node2D"]
@@ -547,13 +563,12 @@ __meta__ = {
 "Scene8",
 ]]
 
-[node name="MissingDog" type="TextureRect" parent="Scene8"]
+[node name="DogSearching" type="TextureRect" parent="Scene8"]
 visible = false
-margin_left = -14.0308
-margin_top = 0.561249
-margin_right = 1585.97
-margin_bottom = 1086.56
-rect_scale = Vector2( 0.22, 0.22 )
+margin_top = -18.4055
+margin_right = 700.0
+margin_bottom = 448.594
+rect_scale = Vector2( 0.49, 0.49 )
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -563,11 +578,11 @@ __meta__ = {
 "TextBackground8",
 ]]
 visible = false
-margin_left = 28.0
-margin_top = 137.809
-margin_right = 316.0
-margin_bottom = 171.809
-custom_styles/panel = SubResource( 23 )
+margin_left = 19.528
+margin_top = 6.0
+margin_right = 320.528
+margin_bottom = 59.0
+custom_styles/panel = SubResource( 29 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -576,13 +591,13 @@ __meta__ = {
 "RichTextScene8",
 ]]
 visible = false
-margin_left = 27.0
-margin_top = 139.0
-margin_right = 314.0
-margin_bottom = 170.0
-custom_fonts/normal_font = SubResource( 24 )
+margin_left = 24.0
+margin_top = 12.0
+margin_right = 319.0
+margin_bottom = 50.0
+custom_fonts/normal_font = SubResource( 30 )
 visible_characters = 0
-text = "Placeholder"
+text = "Sin embargo, cuando terminó la persecución, Cachupín se dió cuenta de que ya no veía a su familia... estaba perdido"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -595,7 +610,7 @@ margin_left = 286.0
 margin_top = 178.0
 margin_right = 339.0
 margin_bottom = 200.0
-custom_fonts/font = SubResource( 25 )
+custom_fonts/font = SubResource( 31 )
 text = "Siguiente"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -605,13 +620,13 @@ __meta__ = {
 "Scene9",
 ]]
 
-[node name="MissingDog2" type="TextureRect" parent="Scene9"]
+[node name="MissingDog" type="TextureRect" parent="Scene9"]
 visible = false
-margin_left = -1.68369
-margin_top = -12.9083
-margin_right = 1108.32
-margin_bottom = 719.092
-rect_scale = Vector2( 0.31, 0.31 )
+margin_left = -14.0308
+margin_top = 0.561249
+margin_right = 1585.97
+margin_bottom = 1086.56
+rect_scale = Vector2( 0.22, 0.22 )
 texture = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -621,11 +636,11 @@ __meta__ = {
 "TextBackground9",
 ]]
 visible = false
-margin_left = 17.0
-margin_top = 9.0
-margin_right = 321.0
-margin_bottom = 61.0
-custom_styles/panel = SubResource( 26 )
+margin_left = 28.0
+margin_top = 134.0
+margin_right = 316.0
+margin_bottom = 196.0
+custom_styles/panel = SubResource( 23 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -634,13 +649,13 @@ __meta__ = {
 "RichTextScene9",
 ]]
 visible = false
-margin_left = 19.0
-margin_top = 11.0
-margin_right = 319.0
-margin_bottom = 59.0
-custom_fonts/normal_font = SubResource( 27 )
+margin_left = 28.0
+margin_top = 136.0
+margin_right = 315.0
+margin_bottom = 195.0
+custom_fonts/normal_font = SubResource( 24 )
 visible_characters = 0
-text = "Placeholder"
+text = "A pesar de que su familia lo buscó y lo buscó, no logró encontrar a Cachupín, y debieron volver a su hogar en el Sur."
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -653,8 +668,79 @@ margin_left = 286.0
 margin_top = 178.0
 margin_right = 339.0
 margin_bottom = 200.0
+custom_fonts/font = SubResource( 25 )
+text = "Siguiente"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scene10" type="CanvasLayer" parent="." groups=[
+"Scene10",
+]]
+
+[node name="MissingDog2" type="TextureRect" parent="Scene10"]
+visible = false
+margin_left = -1.68369
+margin_top = -12.9083
+margin_right = 1108.32
+margin_bottom = 719.092
+rect_scale = Vector2( 0.31, 0.31 )
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextBackground" type="Panel" parent="Scene10" groups=[
+"TextBackground10",
+]]
+visible = false
+margin_left = 17.0
+margin_top = 9.0
+margin_right = 321.0
+margin_bottom = 31.0
+custom_styles/panel = SubResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text10" type="RichTextLabel" parent="Scene10" groups=[
+"RichTextScene10",
+]]
+visible = false
+margin_left = 19.0
+margin_top = 11.0
+margin_right = 319.0
+margin_bottom = 59.0
+custom_fonts/normal_font = SubResource( 27 )
+visible_characters = 0
+text = "Dejando a Cachupín solo, y perdido en el desierto nortino..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="Button" parent="Scene10" groups=[
+"ButtonScene10",
+]]
+visible = false
+margin_left = 286.0
+margin_top = 178.0
+margin_right = 339.0
+margin_bottom = 200.0
 custom_fonts/font = SubResource( 28 )
 text = "Siguiente"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SkipButton" type="CanvasLayer" parent="."]
+
+[node name="Skip" type="Button" parent="SkipButton"]
+margin_left = 2.35973
+margin_top = 181.224
+margin_right = 32.3597
+margin_bottom = 198.224
+custom_fonts/font = SubResource( 32 )
+text = "Saltar"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -667,3 +753,5 @@ __meta__ = {
 [connection signal="pressed" from="Scene7/NextButton" to="." method="_on_Siguiente_pressed"]
 [connection signal="pressed" from="Scene8/NextButton" to="." method="_on_Siguiente_pressed"]
 [connection signal="pressed" from="Scene9/NextButton" to="." method="_on_Siguiente_pressed"]
+[connection signal="pressed" from="Scene10/NextButton" to="." method="_on_Siguiente_pressed"]
+[connection signal="pressed" from="SkipButton/Skip" to="." method="_on_Skip_pressed"]
