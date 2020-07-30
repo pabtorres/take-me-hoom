@@ -21,7 +21,6 @@ func _process(delta):
 		for child in children:
 			if child.name=="FoxLeft":
 				instance=child
-				print(instance)
 				get_tree().get_root().remove_child(instance)
 		var bullet_inst = bullet_obj.instance()
 		get_tree().get_root().add_child(bullet_inst)

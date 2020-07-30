@@ -51,6 +51,5 @@ func _on_Drone_body_entered(body):
 			alive=false
 			speed=0
 			velocity = speed * (0 *transform.y)
-			print("dead")
 			
 	

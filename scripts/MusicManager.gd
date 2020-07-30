@@ -20,23 +20,6 @@ func _ready():
 func _process(delta):
 	pass
 
-"""
-func change_desert_day_music():
-	var audiostream = load("res://music/" + tracks[2])
-	set_stream(audiostream)
-	play()
-
-func change_menu_music():
-	var audiostream = load("res://music/" + tracks[0])
-	set_stream(audiostream)
-	play()
-
-func change_desert_night_music():
-	var audiostream = load("res://music/" + tracks[3])
-	set_stream(audiostream)
-	play()
-"""
-
 func change_music(level_id: int):
 	var audiostream = load("res://music/" + tracks[level_id])
 	set_stream(audiostream)

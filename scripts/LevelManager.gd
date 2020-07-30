@@ -83,6 +83,8 @@ func get_max_life_points():
 func add_life_points():
 	life_points+=200
 
+func reload_current_level():
+	get_tree().change_scene(level_dict_scenes[current_level])
 
 func set_max_life_points(new_max: int):
 	max_life_points = new_max
@@ -97,6 +99,9 @@ func reset_spawn_positions():
 func override_spawn_position(checkpoint: Vector2):
 	spawn_positions[current_level-1] = checkpoint
 
+func change_to_game_over():
+	get_tree().change_scene("res://scenes/GameOver.tscn")
+
 func player_death():
 	set_physics_process(true)
 	reset_life_points()
@@ -104,4 +109,4 @@ func player_death():
 		player_position_night = null
 	else:
 		reset_player_positions()
-	get_tree().reload_current_scene()
+	reload_current_level()

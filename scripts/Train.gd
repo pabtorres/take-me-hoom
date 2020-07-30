@@ -8,10 +8,7 @@ func _ready():
 
 func body_entered(body):
 	if body.get_name().begins_with("Player"):
-		print("enter")
-		print(Global.keys["train"])
 		if Global.keys["train"]==true: 
-			print("hey")
 			
 			# https://godotengine.org/qa/16683/answered-how-to-change-the-texture-of-a-sprite
 			

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://sprites/player/doggo_scarf_sad.png" type="Texture" id=1]
 [ext_resource path="res://fonts/Gotu/Gotu-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scripts/GameOver.gd" type="Script" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )
@@ -13,10 +14,16 @@ outline_color = Color( 0.54902, 0.227451, 0.227451, 1 )
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 14
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 10
 font_data = ExtResource( 2 )
 
 [node name="GameOver" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 3 )
 
 [node name="GameOverContainer" type="CanvasLayer" parent="."]
 
@@ -39,10 +46,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -126.0
-margin_top = -63.0
-margin_right = 126.0
-margin_bottom = 63.0
+margin_left = -126.472
+margin_top = -63.9439
+margin_right = 125.528
+margin_bottom = 62.0561
 rect_scale = Vector2( 0.3, 0.3 )
 rect_pivot_offset = Vector2( 126, 63 )
 texture = ExtResource( 1 )
@@ -50,7 +57,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="GameOverContainer"]
+[node name="Lose" type="Label" parent="GameOverContainer"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -66,30 +73,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Continuar" type="Button" parent="GameOverContainer"]
-margin_left = 215.37
-margin_top = 131.212
-margin_right = 260.37
-margin_bottom = 171.212
-text = "Retry"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Salir" type="Button" parent="GameOverContainer"]
-margin_left = 69.2988
-margin_top = 131.212
-margin_right = 170.299
-margin_bottom = 171.212
+[node name="Retry" type="Button" parent="GameOverContainer"]
+margin_left = 197.908
+margin_top = 139.291
+margin_right = 262.908
+margin_bottom = 163.291
 custom_fonts/font = SubResource( 3 )
-text = "Exit to Menu"
+text = "Reintentar"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton" type="TextureButton" parent="GameOverContainer"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Exit" type="Button" parent="GameOverContainer"]
+margin_left = 87.7043
+margin_top = 138.763
+margin_right = 165.704
+margin_bottom = 162.763
+custom_fonts/font = SubResource( 4 )
+text = "Salir al menú"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="GameOverContainer/Retry" to="." method="_on_Retry_pressed"]
+[connection signal="pressed" from="GameOverContainer/Exit" to="." method="_on_Exit_pressed"]

@@ -48,10 +48,8 @@ func take_damage():
 		lifePoints-=10;
 		if lifePoints<=0:
 			alive=false
-			print("dead")
 			$AnimationPlayer.play("Die")
 			$Area2D2/Attack.disabled=true
-	print(lifePoints)
 
 
 func _on_Area2D2_body_entered(body: Node):
