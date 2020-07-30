@@ -664,4 +664,7 @@ position = Vector2( 836.655, -123.291 )
 
 [node name="Drone2" parent="." instance=ExtResource( 28 )]
 position = Vector2( 3744.3, 220.942 )
+
+[node name="Bone3" parent="." instance=ExtResource( 39 )]
+position = Vector2( -360.899, -26.2147 )
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]
