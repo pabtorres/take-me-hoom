@@ -98,5 +98,8 @@ func override_spawn_position(checkpoint: Vector2):
 func player_death():
 	set_physics_process(true)
 	reset_life_points()
-	reset_player_positions()
+	if current_level%2 == 0:
+		player_position_night = null
+	else:
+		reset_player_positions()
 	get_tree().reload_current_scene()
