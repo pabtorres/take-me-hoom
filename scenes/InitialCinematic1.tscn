@@ -506,7 +506,6 @@ __meta__ = {
 ]]
 
 [node name="DogChasingVulture" type="TextureRect" parent="Scene7"]
-visible = false
 margin_left = -1.12247
 margin_top = -32.5514
 margin_right = 1598.88
@@ -520,11 +519,10 @@ __meta__ = {
 [node name="TextBackground" type="Panel" parent="Scene7" groups=[
 "TextBackground7",
 ]]
-visible = false
 margin_left = 9.0
-margin_top = 117.0
+margin_top = 102.0
 margin_right = 219.0
-margin_bottom = 193.0
+margin_bottom = 178.0
 custom_styles/panel = SubResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -533,11 +531,10 @@ __meta__ = {
 [node name="Text7" type="RichTextLabel" parent="Scene7" groups=[
 "RichTextScene7",
 ]]
-visible = false
 margin_left = 12.0
-margin_top = 118.0
+margin_top = 102.426
 margin_right = 216.0
-margin_bottom = 194.0
+margin_bottom = 178.426
 custom_fonts/normal_font = SubResource( 20 )
 visible_characters = 0
 text = "Tal fue la curiosidad de Cachupín por el desconocido pájaro, que apenas el ave emprendió vuelo, Cachupín salió en su persecución, dejando atrás a su familia."
