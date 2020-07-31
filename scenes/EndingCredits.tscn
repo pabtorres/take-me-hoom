@@ -223,7 +223,7 @@ margin_bottom = 71.0
 margin_right = 204.0
 margin_bottom = 18.0
 custom_fonts/font = SubResource( 8 )
-text = "Rodrigo Villegas"
+text = "Rodrigo Venegas"
 align = 1
 
 [node name="bensound" type="Label" parent="EndingContainer/CreditsExt/Credits/Music/Musicians"]
