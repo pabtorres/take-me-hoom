@@ -1,4 +1,5 @@
 # Take Me Hoom
+Juego desarrollado utilizando el motor Godot que muestra Chile y sus paisajes en el retorno a casa del protagonista Cachupín.
 
 ## Por Traveler Entertainment
 
