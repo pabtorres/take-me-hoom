@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://sprites/keyitems/sign_city_day.png" type="Texture" id=1]
+
+[node name="DaySign2" type="Node2D"]
+position = Vector2( -117.669, 59.546 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -35.0344, -3.98309 )
+scale = Vector2( 0.11919, 0.11919 )
+texture = ExtResource( 1 )

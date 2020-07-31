@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/PRDS02_DIA.ogg-08bf48f8fb678d6b849b1faeeb6a0b48.oggstr"
+
+[deps]
+
+source_file="res://music/PRDS02_DIA.ogg"
+dest_files=[ "res://.import/PRDS02_DIA.ogg-08bf48f8fb678d6b849b1faeeb6a0b48.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

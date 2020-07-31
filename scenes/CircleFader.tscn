@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://shaders/desaturate.shader" type="Shader" id=1]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/amount = 0.998746
+shader_param/radius = 0.0524446
+shader_param/pos_x = null
+shader_param/pos_y = null
+
+[node name="CanvasLayer" type="CanvasLayer"]
+offset = Vector2( -20, 90 )
+transform = Transform2D( 1, 0, 0, 1, -20, 90 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -82.1461
+margin_top = -152.682
+margin_right = 173.854
+margin_bottom = 2.31836
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,145 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://fonts/Gotu/Gotu-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/CinematicDesertToCity.gd" type="Script" id=2]
+[ext_resource path="res://sprites/cinematics/desert_city/1.png" type="Texture" id=3]
+[ext_resource path="res://sprites/cinematics/desert_city/2.png" type="Texture" id=4]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 0.466667 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 10
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 9
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 0, 0, 0.466667 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 10
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 9
+font_data = ExtResource( 1 )
+
+[node name="CityCinematic" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Scene1" type="CanvasLayer" parent="." groups=[
+"Scene1",
+]]
+
+[node name="DogBus" type="TextureRect" parent="Scene1"]
+margin_left = -2.3811
+margin_top = -30.1606
+margin_right = 1597.62
+margin_bottom = 1055.84
+rect_scale = Vector2( 0.215, 0.215 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextBackground" type="Panel" parent="Scene1" groups=[
+"CityTextBackground1",
+]]
+margin_left = 26.0
+margin_top = 9.0
+margin_right = 315.0
+margin_bottom = 57.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text1" type="RichTextLabel" parent="Scene1" groups=[
+"CityText1",
+]]
+margin_left = 29.1784
+margin_top = 13.2919
+margin_right = 316.178
+margin_bottom = 52.2919
+custom_fonts/normal_font = SubResource( 3 )
+visible_characters = 0
+text = "Cachupín no lo sabía, pero el bus al cual subió tenía por destino la capital, Santiago."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="Button" parent="Scene1" groups=[
+"NextButtonCity1",
+]]
+visible = false
+margin_left = 256.632
+margin_top = 170.176
+margin_right = 330.632
+margin_bottom = 192.176
+custom_fonts/font = SubResource( 1 )
+text = "Siguiente"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scene2" type="CanvasLayer" parent="." groups=[
+"Scene2",
+]]
+
+[node name="DogBusWindow" type="TextureRect" parent="Scene2"]
+visible = false
+margin_top = -27.546
+margin_right = 1600.0
+margin_bottom = 1058.45
+rect_scale = Vector2( 0.215, 0.215 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextBackground" type="Panel" parent="Scene2" groups=[
+"CityTextBackground2",
+]]
+visible = false
+margin_left = 11.0
+margin_top = 147.0
+margin_right = 255.0
+margin_bottom = 197.0
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text2" type="RichTextLabel" parent="Scene2" groups=[
+"CityText2",
+]]
+visible = false
+margin_left = 12.0
+margin_top = 154.0
+margin_right = 267.0
+margin_bottom = 192.0
+custom_fonts/normal_font = SubResource( 5 )
+visible_characters = 0
+text = "\"¡Oye, yo conozco ese edificio! Siempre lo veo desde el avión, debo estar más cerca de casa\""
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="Button" parent="Scene2" groups=[
+"NextButtonCity2",
+]]
+visible = false
+margin_left = 276.52
+margin_top = 174.282
+margin_right = 335.52
+margin_bottom = 196.282
+custom_fonts/font = SubResource( 6 )
+text = "A la ciudad"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Scene1/NextButton" to="." method="_on_Next_pressed"]
+[connection signal="pressed" from="Scene2/NextButton" to="." method="_on_ToCity_pressed"]

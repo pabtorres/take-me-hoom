@@ -1,0 +1,220 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://sprites/player/wave.png" type="Texture" id=1]
+[ext_resource path="res://sprites/player/doggo_scarf.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Player1.gd" type="Script" id=3]
+[ext_resource path="res://scenes/CircleFader.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/backgrounds/vignette.png" type="Texture" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 20.9649
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 9.66748, 5.21369 )
+
+[sub_resource type="Animation" id=3]
+length = 1.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.00192947, 0.2, 0.4, 0.8, 1.2, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 66, 70, 71, 66, 1 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.8, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_attack"
+}, {
+"args": [ false ],
+"method": "set_attack"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Death"
+
+[sub_resource type="Animation" id=5]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.8, 1.1, 1.4, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 3, 0, 11, 9, 7, 5 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 2.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.126152, 2.00584 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 42, 71, 42 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 65 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_attack"
+}, {
+"args": [ false ],
+"method": "set_attack"
+} ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.658
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -0.00326902, 0.0741393, 0.164579, 0.279471, 0.367874, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 13, 14, 15, 16, 17, 18 ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -0.4, 0.2, 0.4, 0.7, 1.1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 65, 66, 67, 68, 69, 68 ]
+}
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 32, 18.8144 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 17.7447, 20.0426 )
+
+[node name="Player1" type="KinematicBody2D"]
+position = Vector2( -289.567, 96.7795 )
+scale = Vector2( 2, 2 )
+collision_mask = 13
+script = ExtResource( 3 )
+
+[node name="Attack" type="CollisionShape2D" parent="."]
+position = Vector2( -34.6352, -5.83498 )
+rotation = 0.408407
+shape = SubResource( 1 )
+disabled = true
+one_way_collision_margin = 0.0
+
+[node name="Sprite" type="Sprite" parent="Attack"]
+visible = false
+position = Vector2( -4.02307, 4.00409 )
+rotation = -0.404916
+scale = Vector2( 0.105782, 0.0946371 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -12.1906, -3.90118 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="CanvasLayer" parent="Camera2D" instance=ExtResource( 4 )]
+
+[node name="Sprite" type="Sprite" parent="Camera2D"]
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Bark = SubResource( 3 )
+anims/Death = SubResource( 4 )
+anims/Idle = SubResource( 5 )
+anims/Jump = SubResource( 6 )
+anims/OnAirBark = SubResource( 7 )
+anims/Run = SubResource( 8 )
+anims/Sleep = SubResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 23.1615, -7.59848 )
+texture = ExtResource( 2 )
+vframes = 12
+hframes = 13
+frame = 5
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 9.56699, 10.6715 )
+shape = SubResource( 10 )
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+margin_left = -24.0
+margin_top = -34.0
+margin_right = 25.0
+margin_bottom = -20.0
+max_value = 1000.0
+step = 10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 11.4987, 11.1424 )
+z_as_relative = false
+shape = SubResource( 11 )
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

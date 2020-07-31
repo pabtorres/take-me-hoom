@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://sprites/ennemies/drone.png" type="Texture" id=1]
+[ext_resource path="res://scripts/drone_city.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 14.3712, 13.2341 )
+
+[sub_resource type="Animation" id=3]
+length = 0.11
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.02, 0.04, 0.06, 0.08 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.25
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 4 ]
+}
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 11.9062, 23.9581 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 31.3338, 10 )
+
+[node name="Drone" type="KinematicBody2D" groups=[
+"Enemy",
+]]
+position = Vector2( 21.6784, 63.2528 )
+script = ExtResource( 2 )
+
+[node name="icon" type="Sprite" parent="."]
+position = Vector2( 0.686615, -0.118561 )
+scale = Vector2( 0.132095, 0.139141 )
+texture = ExtResource( 1 )
+hframes = 5
+frame = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.411219, -2.79985 )
+scale = Vector2( 2.31595, 1.81996 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Die = SubResource( 3 )
+anims/Idle = SubResource( 4 )
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="Attack" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2( -35.7038, -1.9207 )
+shape = SubResource( 5 )
+
+[node name="Attack2" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2( 37.6517, -2.53584 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2( -0.461365, -27.8351 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2( 0.61512, 24.9132 )
+shape = SubResource( 6 )
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_Area2D2_body_entered"]
